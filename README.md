@@ -21,3 +21,8 @@ The objective of the project would be to be able to collect and present release 
 5. Project Usage:
 In future, the outcome of this project may be used towards my other projects if it becomes relevant and useful. 
 
+6. License:
+- The project is licensed under MIT License (a permissive license with conditions only requiring preservation of copyright and license notices). 
+- Licensed works, modifications, and larger works may be distributed under different terms and without source code.
+- License link: https://github.com/minaoar/library-version-wise-opinion-extration/blob/main/LICENSE
+
