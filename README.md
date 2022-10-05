@@ -1,5 +1,6 @@
 # Licensing
-This project is copyright Minaoar Hossain Tanzil. It is licensed under the MIT license. See `LICENSE.txt` for thecomplete license.
+Copyright Minaoar Hossain Tanzil, 2022 Licensed under MIT License.
+See the LICENSE file for more information.
 
 # library-version-wise-opinion-extration
 Extract open source library’s version specific opinions from Stack Overflow
