@@ -12,7 +12,7 @@ overview of how things are organized and most importantly, how to get involved.
 ## OSS Component Usage Policy
 Since this project is licensed under MIT License, if you use any OSS component, 
 please ensure that the component is licensed under only the permissive licenses
-(e.g., MIT, BSD, Apache) approved by the [Open Source Initiative](https://opensource.org/licenses)
+(e.g., MIT, BSD, Apache) approved by the [Open Source Initiative](https://opensource.org/licenses).
 
 ## How to Submit Changes
 Whether you want to add a new feature/improvement of fix a bug,
@@ -40,5 +40,6 @@ data dump as outlined [here](https://gist.github.com/minaoar/aafd5f97d15a1aad8cc
 
 
 ## Style Guide
-Since this repository includes only Python code, please follow style guide from 
+- Please provide clear and brief summary of your modifications in git commit.
+- Since this repository includes only Python code, please follow style guide from 
 [PEP 8 Style Guide for Python Code](https://peps.python.org/pep-0008/)(python.org).
