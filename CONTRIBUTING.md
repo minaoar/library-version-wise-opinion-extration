@@ -27,6 +27,9 @@ label (bug/enhancement/documentation etc.).
 it would be highly appreciated.
 
 ### Contributing Source Code
+Before contributing to source code, please sign the [Contributor License Agreement](https://github.com/minaoar/library-version-wise-opinion-extration/blob/main/Contributor_License_Agreement.md)
+and send a copy to the email address of this project owner.
+
 To make changes to project's code base, you need to fork then clone the GitHub 
 repository and build the project from source. You'll need to make sure that 
 you have a development environment consisting of a Python distribution 
