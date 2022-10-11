@@ -15,19 +15,17 @@ file_dir = os.path.dirname(__file__)
 sys.path.append(file_dir)
 from process_post_text import *
 
-# keywords =  ["slf4j", "log4j"]
-# keywords =  ["memcpy", "memmove"]
-# keywords = ['pandas', 'numpy']
-keywords = ['lxml', 'beautifulsoup']
+keywords =  ["slf4j", "log4j"]
+keywords =  ["memcpy", "memmove"]
+keywords = ['pandas', 'numpy']
 
 # query = ("SELECT id, body FROM Posts where body like '%mysql%connector%' LIMIT 2")
 # query = "SELECT id, body FROM stackoverflow.Posts where (Tags like '%<slf4j>%' and Tags like '%<log4j2>%') order by ViewCount Desc LIMIT 0, 5;"
 # query = "SELECT id, body FROM stackoverflow.Posts where (Tags like '%<slf4j>%' and Tags like '%<log4j2>%')  LIMIT 0, 50;"
-# query = "SELECT id, body FROM stackoverflow.Posts where (body like '%memcpy%' and body like '%memmove%')  LIMIT 0, 50;"
-# query = "SELECT id, text as body FROM stackoverflow.Comments where (text like '%memcpy%' OR text like '%memmove%')  LIMIT 0, 50;"
-# query = "SELECT id, text as body FROM stackoverflow.Comments where (text like '%pandas%' and text like '%numpy%')  LIMIT 0, 50;"
+query = "SELECT id, body FROM stackoverflow.Posts where (body like '%memcpy%' and body like '%memmove%')  LIMIT 0, 50;"
+query = "SELECT id, text as body FROM stackoverflow.Comments where (text like '%memcpy%' OR text like '%memmove%')  LIMIT 0, 50;"
+query = "SELECT id, text as body FROM stackoverflow.Comments where (text like '%pandas%' and text like '%numpy%')  LIMIT 0, 50;"
 
-query = "SELECT id, body, creationdate FROM stackoverflow.Posts where (body like '%lxml%' and body like '%beautifulsoup%')  LIMIT 0, 50;"
 logging.basicConfig(format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.INFO)
 logging.info('Started program: '+os.path.basename(__file__))
 
@@ -55,8 +53,8 @@ print(cursor.column_names)
 #print value of body column
 
 s = 1
-for (id, body, creationdate) in myresult:
-    #print(id, creationdate)
+for (id, body) in myresult:
+    #print(id)
     #print(body)
     #print('---------------------')
     # parse stackoverflow post body by removing xml tags
