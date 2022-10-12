@@ -28,7 +28,7 @@ it would be highly appreciated.
 
 ### Reporting a Bug
 Even with our meticulous efffort, there can be bugs and we will be glad to get those reported.
-While reporting a bug please consider adding following information:
+While reporting a bug to the [issue list](https://github.com/minaoar/library-version-wise-opinion-extration/issues), please consider adding following information:
 - [ ] First of all, add label 'bug' to the issue
 - [ ] Provide a clear title that it's a bug
 - [ ] Provide what problem you are facing or you are assuming will occur
