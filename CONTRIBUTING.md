@@ -21,10 +21,21 @@ please ensure first that a related issue is posted in the [issue list](https://g
 ### Creating an Issue
 When you create an issue, please provide a meaningful title and appropriate 
 label (bug/enhancement/documentation etc.). 
-- In case of bug, kindly provide the steps how it can be reproduced. 
+- In case of bug, kindly provide the steps how it can be reproduced. More details [here](#reporting-a-bug)
 - In case of an enhancement, please provide why this is a good idea.
 - If you can write in simple way how you are planning/expecting to develop,
 it would be highly appreciated.
+
+### Reporting a Bug
+Even with our meticulous efffort, there can be bugs and we will be glad to get those reported.
+While reporting a bug please consider adding following information:
+- [ ] First of all, add label 'bug' to the issue
+- [ ] Provide a clear title that it's a bug
+- [ ] Provide what problem you are facing or you are assuming will occur
+  - [ ] Kindly provide the version number of branch name of the application you are running
+  - [ ] Provide the date/time, operating system, and datasource (database or sample data) of the bug, if applicable 
+- [ ] Provide any kind of steps or ideas to reproduce
+- [ ] If you have any sort of screenshot or log that you recorded during the bug discovery, please kindly add that to the issue
 
 ### Contributing Source Code
 Before contributing to source code, please sign the [Contributor License Agreement](https://github.com/minaoar/library-version-wise-opinion-extration/blob/main/Contributor_License_Agreement.md)
