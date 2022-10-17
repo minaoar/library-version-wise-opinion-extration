@@ -1,8 +1,6 @@
 #  Copyright Minaoar Hossain Tanzil, 2022 Licensed under MIT License.
 #  See the LICENSE.txt for more information.
 
-from email import header
-import requests
 from bs4 import BeautifulSoup
 import cloudscraper
 import pandas as pd
@@ -29,20 +27,6 @@ def get_artifact_page(response, library_name):
                 return href
 
 
-def get_library_results(library_name):
-    site_url = "https://mvnrepository.com/search?q="+library_name
-    response = get_site_content(site_url)
-    artifact_page = get_artifact_page(response, library_name)
-    # get the library details page
-    library_details_page = "https://mvnrepository.com"+artifact_page
-    print("Library Details Page: ", library_details_page)
-    print("*"*100)
-
-    # get the library details page content
-    response = get_site_content(library_details_page)
-    # parse the library details page
-    parse_library_details_page(response)
-
 def get_version_rows(tables_all):
     version_rows = []
     # check all tables. The version table is the after the first table with more than 5 rows
@@ -53,21 +37,9 @@ def get_version_rows(tables_all):
             
     return version_rows
 
-def parse_library_details_page(response):
-    # parse the version information table using pandas
-    
-    # find table with id = 'grid versions'
-    soup = BeautifulSoup(response.text, "html.parser")
-    tables_all = soup.findAll('table')#, attrs={'id':'grid versions'})
+def parse_library_version_rows(version_rows):
+    version_list = []
 
-    #load pandas dataframe from the table
-    artifact_info_table = pd.read_html(str(tables_all[0]))[0]
-    print("Artifact Info:\n", artifact_info_table.to_markdown(index=False))
-    # version_info_table = pd.read_html(str(table[1]))[0]
-    # print("\n\nVersion Info:\n", version_info_table)
-
-    version_rows = get_version_rows(tables_all)
-    #print("Version Rows:\n", len(version_rows))
     version_list = []
 
     for row in version_rows:
@@ -78,7 +50,6 @@ def parse_library_details_page(response):
             
         if len(date_info) > 0:
             date_value = date_info[0].text
-            #print("Date: ", )
             version_info['date'] = str(date_value)
 
         usage_info = row.find_all('a')
@@ -96,6 +67,23 @@ def parse_library_details_page(response):
                 
         version_list.append(version_info.copy())
 
+    return version_list
+
+def parse_library_details_page(response):
+    soup = BeautifulSoup(response.text, "html.parser")
+    tables_all = soup.findAll('table')#, attrs={'id':'grid versions'})
+
+    #load pandas dataframe from the introductory table
+    artifact_info_table = pd.read_html(str(tables_all[0]))[0]
+    print("Artifact Info:\n", artifact_info_table.to_markdown(index=False))
+    
+    # Since the version details table contains merged cells, we need to parse the table manually
+    # version_info_table = pd.read_html(str(table[1]))[0]
+    # print("\n\nVersion Info:\n", version_info_table)
+
+    version_rows = get_version_rows(tables_all)
+    version_list = parse_library_version_rows(version_rows)
+
     # print("Version List:\n", version_list)
 
     # load dataframe from the string values of version list
@@ -105,9 +93,24 @@ def parse_library_details_page(response):
     version_info_table = version_info_table.dropna()
     print("\n\nVersion Info [" + str(len(version_list))+"]:\n", version_info_table.to_markdown(index=False))
 
+    return artifact_info_table, version_info_table
+
+
+
+def get_library_results(library_name):
+    site_url = "https://mvnrepository.com/search?q="+library_name
+    response = get_site_content(site_url)
+    artifact_page = get_artifact_page(response, library_name)
+    # get the library details page
+    library_details_page = "https://mvnrepository.com"+artifact_page
+    print("Library Details Page: ", library_details_page)
+    print("*"*100)
+
+    # get the library details page content
+    response = get_site_content(library_details_page)
+    # parse the library details page
+    parse_library_details_page(response)
     
-
-
 if __name__ == "__main__":
     get_library_results("gson")
     get_library_results("jackson")
