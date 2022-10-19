@@ -32,7 +32,8 @@ In future, the outcome of this project may be used towards my other projects if 
 
 ## Contributing
 We greatly appreciate any contribution to this project. Before creating a new issue or pull request, 
-please read the contribution guidelines and policies in [CONTRIBUTING](https://github.com/minaoar/library-version-wise-opinion-extration/blob/main/Contributor_License_Agreement.md) file.
+
+please read the contribution guidelines and policies in [CONTRIBUTING](https://github.com/minaoar/library-version-wise-opinion-extration/blob/main/CONTRIBUTING.md) file.
 
 
 ## How to generate Docker image
@@ -43,3 +44,4 @@ please read the contribution guidelines and policies in [CONTRIBUTING](https://g
 > docker build --no-cache -t myimage .
 
 3. Run the docker in the docker desktop 
+
