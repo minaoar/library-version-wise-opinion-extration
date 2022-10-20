@@ -36,12 +36,18 @@ We greatly appreciate any contribution to this project. Before creating a new is
 please read the contribution guidelines and policies in [CONTRIBUTING](https://github.com/minaoar/library-version-wise-opinion-extration/blob/main/CONTRIBUTING.md) file.
 
 
-## How to generate Docker image
 
-1. First you need to install docker desktop from [here](https://www.docker.com/get-started/) on your machine.
-2. Then run the following command:
+## How to Get Started
+While you can try to build source code in your local machine, you can also use Docker to run the scripts.
+Here is a simple way to start with the Docker:
 
-> docker build --no-cache -t myimage .
-
-3. Run the docker in the docker desktop 
+1. Clone the repository of the project
+2. Install docker desktop from [here](https://www.docker.com/get-started/) on your machine.
+3. Go to the project directory you cloned. Then run the following command:
+> docker build --no-cache -t library-opinion .
+4. Now under Images tab of the installed Docker application, you can find the 'library-opinion' image.
+5. Start the library-opinion image from the Docker application.
+6. From the Containers tab of Docker application, you can see the library-opinion container is running.
+7. You can enter in to CLI (command line interface) of the container. It will take you to the project directory inside the container.
+8. In the CLI, you can go to 'source' folder and run any script (e.g., parse_library_results_maven.py that will) there.
 
