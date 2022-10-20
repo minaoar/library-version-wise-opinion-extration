@@ -2,7 +2,6 @@
 #  See the LICENSE.txt for more information.
 
 # Connect to mysql database and select all rows from table
-import pwd
 import mysql.connector
 from mysql.connector import errorcode
 
