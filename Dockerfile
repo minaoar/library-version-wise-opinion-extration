@@ -2,7 +2,7 @@
 FROM python:3.8
 
 # set the working directory in the container
-WORKDIR /
+WORKDIR /app
 
 # copy the dependencies file to the working directory
 COPY requirements.txt .
@@ -20,5 +20,5 @@ COPY source/ ./source/
 COPY data/ ./data/
 
 # command to run on container start
-CMD [ "CD", "./source" ]
-CMD [ "python", "./process_post_text.py" ]
+#CMD [ "CD", "./source" ]
+#CMD [ "python", "./process_post_text.py" ]
