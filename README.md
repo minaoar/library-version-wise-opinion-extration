@@ -32,4 +32,16 @@ In future, the outcome of this project may be used towards my other projects if 
 
 ## Contributing
 We greatly appreciate any contribution to this project. Before creating a new issue or pull request, 
+
 please read the contribution guidelines and policies in [CONTRIBUTING](https://github.com/minaoar/library-version-wise-opinion-extration/blob/main/CONTRIBUTING.md) file.
+
+
+## How to generate Docker image
+
+1. First you need to install docker desktop from [here](https://www.docker.com/get-started/) on your machine.
+2. Then run the following command:
+
+> docker build --no-cache -t myimage .
+
+3. Run the docker in the docker desktop 
+
