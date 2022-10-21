@@ -8,7 +8,8 @@ from tabulate import tabulate
 
 def get_site_content(site_url):
 
-    scraper = cloudscraper.create_scraper(delay=10,   browser={'custom': 'ScraperBot/1.0',})
+    browser={'User-Agent': 'FireFox/5.0 (Macintosh; Intel Mac OS X 11_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15'}
+    scraper = cloudscraper.create_scraper(delay=10,   browser=browser)
     response = scraper.get(site_url)
     return response
 
