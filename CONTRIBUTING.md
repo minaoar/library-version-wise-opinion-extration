@@ -14,11 +14,18 @@ Since this project is licensed under MIT License, if you use any OSS component,
 please ensure that the component is licensed under only the permissive licenses
 (e.g., MIT, BSD, Apache) approved by the [Open Source Initiative](https://opensource.org/licenses).
 
+## Particpate in Discussion
+You can participate in discussion from the [Discussion](https://github.com/minaoar/library-version-wise-opinion-extration/discussions) section 
+of this repository. You are welcome to add new discussion, choose a category, and ask any question or provide any idea.
+
 ## How to Submit Changes
 Whether you want to add a new feature/improvement of fix a bug,
 please ensure first that a related issue is posted in the [issue list](https://github.com/minaoar/library-version-wise-opinion-extration/issues).
 
 ### Creating an Issue
+(If you are new to this repository and if you can have question regarding the project, please consider opening a discussion 
+from the [Discussion](https://github.com/minaoar/library-version-wise-opinion-extration/discussions) board as described above before directly creating an issue with initial queries.)
+
 When you create an issue, please provide a meaningful title and appropriate 
 label (bug/enhancement/documentation etc.). 
 - In case of bug, kindly provide the steps how it can be reproduced. More details [here](#reporting-a-bug)
