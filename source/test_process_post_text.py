@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import spacy
 
-from process_post_text import breakdown_sentences, extract_sentence_with_adjectives, extract_sentence_with_keywords, process_raw_text, read_word_list, remove_code_snippet
+from process_post_text import read_word_list
 
 def test_read_word_list():
     
