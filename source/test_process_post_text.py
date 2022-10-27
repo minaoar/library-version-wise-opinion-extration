@@ -1,5 +1,4 @@
 from bs4 import BeautifulSoup
-import spacy
 
 from process_post_text import read_word_list
 
