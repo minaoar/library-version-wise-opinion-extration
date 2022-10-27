@@ -1,20 +1,19 @@
-# from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup
 
-# from process_post_text import read_word_list
+from process_post_text import read_word_list
 
 def test_read_word_list():
-    pass
     #Arrange
-    # try:
-    #     POSITIVE_WORD_FILE = "../data/positive-words.txt"
-    #     NEGATIVE_WORD_FILE = "../data/negative-words.txt"
+    try:
+        POSITIVE_WORD_FILE = "../data/positive-words.txt"
+        NEGATIVE_WORD_FILE = "../data/negative-words.txt"
     
-    # except FileNotFoundError:
-    #     print('The file is not present.')
+    except FileNotFoundError:
+        print('The file is not present.')
 
-    # #Act and Asert
-    # assert read_word_list(POSITIVE_WORD_FILE) == 1
-    # assert read_word_list(NEGATIVE_WORD_FILE) == 1
+    #Act and Asert
+    assert read_word_list(POSITIVE_WORD_FILE) == 1
+    assert read_word_list(NEGATIVE_WORD_FILE) == 1
 
 # POSITIVE_WORD_FILE = "../data/positive-words.txt"
 # NEGATIVE_WORD_FILE = "../data/negative-words.txt"
