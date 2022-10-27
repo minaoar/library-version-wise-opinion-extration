@@ -7,8 +7,8 @@ def test_read_word_list():
     
     #Arrange
     try:
-        POSITIVE_WORD_FILE = "/data/positive-words.txt"
-        NEGATIVE_WORD_FILE = "/data/negative-words.txt"
+        POSITIVE_WORD_FILE = "../data/positive-words.txt"
+        NEGATIVE_WORD_FILE = "../data/negative-words.txt"
     
     except FileNotFoundError:
         print('The file is not present.')
