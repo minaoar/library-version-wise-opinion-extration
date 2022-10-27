@@ -1,13 +1,14 @@
-from process_post_text import read_word_list
+from process_post_text import breakdown_sentences, extract_sentence_with_adjectives, extract_sentence_with_keywords, process_raw_text, read_word_list, remove_code_snippet
 
 def test_read_word_list():
+    
+    #Arrange
     POSITIVE_WORD_FILE = "../data/positive-words.txt"
     NEGATIVE_WORD_FILE = "../data/negative-words.txt"
 
+    #Act and Asert
     assert read_word_list(POSITIVE_WORD_FILE) == 1
     assert read_word_list(NEGATIVE_WORD_FILE) == 1
-
-    #pass
 
 def test_remove_code_snippet():
     remove_code_snippet(body_soup)
@@ -23,3 +24,6 @@ def test_extract_sentence_with_keywords():
 
 def test_extract_sentence_with_adjectives():
     extract_sentence_with_adjectives(sentence_list)
+
+def test_passed():
+    pass
