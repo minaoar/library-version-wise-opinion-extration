@@ -1,0 +1,111 @@
+id,sentence,date,gson_version,jackson_version
+583563,"<well> <recommendation> My recommendation would be Jackson, http://jackson.codehaus.org/Tutorial
+which allows for mapping to List/Map/Integer/String/Boolean/null, as well as to real Beans/POJOs.",2009-02-24 20:58:02,[],[]
+583563,"<like> Others like ""json-tools"" from berlios, or google-gson also expose similar functionality.",2009-02-24 20:58:02,[],[]
+836805,"<super> [EDIT Update issues using GSON library]
+I attempted to use the GSON library but it cannot deserialize concrete objects when I only have it expect generic super classes (XStream and Jettison handles this because type information is baked into the serialization).",2009-05-12 05:30:00,[],[]
+836805,"<issues> [EDIT Update issues using GSON library]
+I attempted to use the GSON library but it cannot deserialize concrete objects when I only have it expect generic super classes (XStream and Jettison handles this because type information is baked into the serialization).",2009-05-12 05:30:00,[],[]
+849495,"<support> <good> <better> To get good JSON-support, I would consider using a JSON processing library that does real OJM mapping (I assume Svenson does too, but additionally), such as:
+
+Jackson
+Google-gson
+
+Also: even if you do need to support both XML and JSON, you are IMO better off using separate libraries for these tasks -- objects (beans) to use on server-side need not be different, just serialization libs that convert to/from xml and json.",2009-05-11 18:50:09,[],[]
+2378402,"<suffers> <issue> After searching through some existing libraries for JSON, I have finally ended up with these two:
+
+Jackson
+Google GSon
+
+I am a bit partial towards GSON, but word on the net is that GSon suffers from a certain celestial performance issue (as of Sept 2009).",2013-08-22 21:23:53,"['2.2', '2.1', '2.0']","['2.2', '2.1', '2.0']"
+2431212,"<like> EDIT: latest versions of Gson also include streaming reader
+Tree model (DOM-like access); can convert between various models (tree <-> java object <-> stream)
+Can use any constructors (or static factory methods), not just default constructor
+Field and getter/setter access (earlier gson versions only used fields, this may have changed)",2012-05-03 01:07:11,"['1.7', '2.1', '2.0']",['2.0']
+2431212,"<miss> Since I am more familiar with Jackson, here are some aspects where I think Jackson has more complete support than Gson (apologies if I miss a Gson feature):
+
+Extensive annotation support; including full inheritance, and advanced ""mix-in"" annotations (associate annotations with a class for cases where you can not directly add them)",2012-05-03 01:07:11,"['1.7', '2.1', '2.0']",['2.0']
+2431212,<primitive> Jackson and Gson are the most complete Java JSON packages regarding actual data binding support; many other packages only provide primitive Map/List (or equivalent tree model) binding.,2012-05-03 01:07:11,"['1.7', '2.1', '2.0']",['2.0']
+2431212,"<static> <object> EDIT: latest versions of Gson also include streaming reader
+Tree model (DOM-like access); can convert between various models (tree <-> java object <-> stream)
+Can use any constructors (or static factory methods), not just default constructor
+Field and getter/setter access (earlier gson versions only used fields, this may have changed)",2012-05-03 01:07:11,"['1.7', '2.1', '2.0']",['2.0']
+2431212,"<support> <advanced> Since I am more familiar with Jackson, here are some aspects where I think Jackson has more complete support than Gson (apologies if I miss a Gson feature):
+
+Extensive annotation support; including full inheritance, and advanced ""mix-in"" annotations (associate annotations with a class for cases where you can not directly add them)",2012-05-03 01:07:11,"['1.7', '2.1', '2.0']",['2.0']
+2431212,<support> Jackson and Gson are the most complete Java JSON packages regarding actual data binding support; many other packages only provide primitive Map/List (or equivalent tree model) binding.,2012-05-03 01:07:11,"['1.7', '2.1', '2.0']",['2.0']
+2431212,"<static> Out-of-box JAX-RS support
+Interoperability: can also use JAXB annotations, has support/work-arounds for common packages (joda, ibatis, cglib), JVM languages (groovy, clojure, scala)
+Ability to force static (declared) type handling for output
+Support for deserializing polymorphic types (Jackson 1.5) -- can serialize AND deserialize things like List correctly (with additional type information)",2012-05-03 01:07:11,"['1.7', '2.1', '2.0']",['2.0']
+2431212,"<work> <support> <like> <correctly> Out-of-box JAX-RS support
+Interoperability: can also use JAXB annotations, has support/work-arounds for common packages (joda, ibatis, cglib), JVM languages (groovy, clojure, scala)
+Ability to force static (declared) type handling for output
+Support for deserializing polymorphic types (Jackson 1.5) -- can serialize AND deserialize things like List correctly (with additional type information)",2012-05-03 01:07:11,"['1.7', '2.1', '2.0']",['2.0']
+2525152,"<intuitive> <helpful> Although my original answer here, from many years ago, seems to be helpful and is still getting upvotes, I now use the GSON library from Google, which I find to be more intuitive.",2020-09-06 10:22:19,"['2.8', '2.6', '2.7']","['2.9', '2.10', '2.11']"
+2557590,<faster> <fast> <easy> It's easy and fast (faster than GSON) for converting to and from Java objects (including ),2010-04-01 01:16:39,['1.4'],[]
+2609738,"<well> They can do this conversion (I know Jackson can, I would expect GSON to be able to as well).",2010-04-09 18:05:49,['1.4'],[]
+2623091,"<instructive> I know there're many libs(Gson,Jackson...) can do this, can you give me some instructive ideas on how to write this by myself?",2010-04-12 15:35:33,['1.4'],[]
+2840873,"<fast> EDIT 19-MAR-2014:
+Another new contender is Jackson jr library: it uses same fast Streaming parser/generator as Jackson (), but data-binding part is tiny (50kB).",2014-03-19 15:37:07,"['2.2', '2.1', '2.0']","['2.3', '2.2', '2.1']"
+2840873,"<convenient> I am surprised these have not been mentioned: but instead of using bare-bones rather manual process with json.org's little package, GSon and Jackson are much more convenient to use.",2014-03-19 15:37:07,"['2.2', '2.1', '2.0']","['2.3', '2.2', '2.1']"
+2840873,"<well> So you can actually bind to your own POJOs, not some half-assed tree nodes or Lists and Maps.
+(and at least Jackson allows binding to such things too (perhaps GSON as well, not sure), JsonNode, Map, List, if you really want these instead of 'real' objects)",2014-03-19 15:37:07,"['2.2', '2.1', '2.0']","['2.3', '2.2', '2.1']"
+3207705,"<popular> <available> There are several JSON libraries in Java available which you can implement in your webapp, the popular ones being under each JSON.org, Jackson and Google Gson.",2017-05-23 12:02:39,"['2.8', '2.6', '2.7']","['2.9', '2.8', '2.7']"
+3261073,"<like> <faster> I've seen questions like this come up before, and the general consensus is that Jackson is much faster than Gson.",2017-05-23 12:16:55,"['2.8', '2.6', '2.7']","['2.9', '2.8', '2.7']"
+3261073,"<better> Gson
+Replace standard Android JSON parser for better performance?
+http://www.cowtowncoder.com/blog/archives/2009/12/entry_345.html
+https://stackoverflow.com/questions/338586/a-better-java-json-library
+
+Here is one which specifically discusses Android: http://ubikapps.net/?p=525",2017-05-23 12:16:55,"['2.8', '2.6', '2.7']","['2.9', '2.8', '2.7']"
+3309236,"<popular> <available> If you're using PHP, then you can convert between a JSON string and a PHP array using  and 
+If you're using JSP/Java, then there are several libraries available to convert between a JSON string and a Java object, the popular ones being Google Gson, JSON.org and Jackson.",2010-07-22 13:17:16,['1.4'],[]
+3309236,"<object> If you're using PHP, then you can convert between a JSON string and a PHP array using  and 
+If you're using JSP/Java, then there are several libraries available to convert between a JSON string and a Java object, the popular ones being Google Gson, JSON.org and Jackson.",2010-07-22 13:17:16,['1.4'],[]
+3359884,"<trick> You can of course already exclude serialization of parent link already using most JSON processing packages (jackson, gson and flex-json at least support it), but the real trick is in how to deserialize it back (re-create parent link), not just handle serialization side.",2020-08-12 22:03:08,"['2.8', '2.6', '2.7']","['2.9', '2.10', '2.11']"
+3359884,"<support> Jackson 1.6 (released september 2010) has specific annotation-based support for handling such parent/child linkage, see http://wiki.fasterxml.com/JacksonFeatureBiDirReferences.",2020-08-12 22:03:08,"['2.8', '2.6', '2.7']","['2.9', '2.10', '2.11']"
+3359884,"<supports> EDIT (April 2012): Jackson 2.0 now supports true identity references (Wayback Snapshot), so you can solve it this way also.",2020-08-12 22:03:08,"['2.8', '2.6', '2.7']","['2.9', '2.10', '2.11']"
+3359884,"<support> You can of course already exclude serialization of parent link already using most JSON processing packages (jackson, gson and flex-json at least support it), but the real trick is in how to deserialize it back (re-create parent link), not just handle serialization side.",2020-08-12 22:03:08,"['2.8', '2.6', '2.7']","['2.9', '2.10', '2.11']"
+3532753,"<work> But others API should also work :
+
+Sojo
+FlexJSON
+Gson",2010-08-20 16:14:57,['1.4'],[]
+3538238,"<good> <dynamic> I think BalusC gave good pointers for the specific question wrt GSon (and in general, one-to-one data binding); but just in case you think there should be more dynamic handling, you could also consider other JSON processing packages.",2010-08-21 16:46:08,['1.4'],[]
+3625278,"<supported> <smile> Jackson is a Java serialization and deserialization API typically used for reading and writing JSON, although other data formats such as Avro, CBOR, CSV, Java Properties, Protobuf, Smile, XML, and YAML are also supported.",2016-05-17 21:08:08,"['2.6', '2.5', '2.4']","['2.6', '2.7', '2.5']"
+3625291,"<available> The Gson project is hosted at and available for download from https://github.com/google/gson and licensed using the Apache License 2.0
+Latest release: 2.8.6 released on Oct 4, 2019
+Project Links
+
+Gson API: Javadocs for the current Gson release
+Gson guide:",2020-08-25 14:39:35,"['2.8', '2.6', '2.7']","['2.9', '2.10', '2.11']"
+3655318,"<recommend> <like> <decent> Aside from Gson that some like, I would recommend Jackson; and flex-json and Svenson are other packages that seem decent.",2010-09-07 16:34:46,['1.4'],[]
+3672297,<worth> <like> <improvements> Choices like Jackson and Gson are big improvements so it is worth considering using them.,2010-09-08 22:13:33,['1.4'],[]
+3741347,<problem> Neither json-lib nor Gson were able to solve the problem.,2010-09-18 10:37:58,['1.4'],[]
+3754055,"<ideally> <better> Ideally it would take my ModelMap and render it as JSON, respecting my renderedAttributes set in the ContentNegotiatingViewResolver declaration
+We plan to use Gson extensively in the application as it seems safer and better than Jackson.",2013-04-26 06:43:41,"['2.2', '2.1', '2.0']","['2.2', '2.1', '2.0']"
+3794212,<fastest> I'm pointing you to Jackson first at it seems to be the fastest in many cases.,2010-10-01 22:24:26,['1.4'],[]
+3794212,"<well> <reputation> <good> <flexible> Gson as also a good reputation and is very flexible, however the previous benchmarks I came across seemed to indicate that it did not perform as well as Jackson.",2010-10-01 22:24:26,['1.4'],[]
+3893514,"<work> <well> <like> <favorite> There are tons of libraries for Java side at least; my favorite is Jackson, others like GSON and flex-json also work well.",2010-10-08 19:00:21,['1.4'],[]
+3898812,"<issues> Note that Jackson fixes these issues, and is faster than GSON.",2013-01-22 18:43:21,"['2.2', '2.1', '2.0']","['2.1', '2.0']"
+3898812,"<faster> Note that Jackson fixes these issues, and is faster than GSON.",2013-01-22 18:43:21,"['2.2', '2.1', '2.0']","['2.1', '2.0']"
+4056837,"<well> Otherwise, Jackson and GSON at least have full bean serialization as well as allowing custom serializers.",2010-10-30 01:15:14,['1.4'],[]
+4079845,"<work> If these do not work, Jackson and GSON libraries can handle this use case easily; both have methods to specify generic types for deserialization.",2010-11-02 16:31:23,['1.4'],[]
+4079845,"<super> Alternatively you may be able to sub-class HashMap into your own type (MyEntityMap extends HashMap), since then type information can be inferred from generic super type; and passing MyEntityMap.class would give type information that most JSON libraries can use (Jackson and GSON at least).",2010-11-02 16:31:23,['1.4'],[]
+4079938,"<powerful> Ones that are most powerful in terms of data binding are Jackson, GSON and FlexJSON.",2010-11-02 16:40:47,['1.4'],[]
+4197528,"<object> Some JSON libraries out there, such as Jackson and Gson, provide a feature where you can specify a different input/output representation for a given object based on a runtime setting, which seems like a suitable way to handle versioning for many cases.",2010-11-16 18:18:15,['1.4'],[]
+4197528,"<suitable> <like> Some JSON libraries out there, such as Jackson and Gson, provide a feature where you can specify a different input/output representation for a given object based on a runtime setting, which seems like a suitable way to handle versioning for many cases.",2010-11-16 18:18:15,['1.4'],[]
+4226680,"<work> <good> Btw, one other good Java JSON library you might want to consider using is Jackson; however, for this particular example all libraries you mention should work.",2010-11-19 15:52:12,['1.4'],[]
+4251783,"<work> <correctly> But just in case you could not make Gson work with this, I know that of other JSON libraries Jackson can handle such cases correctly.",2010-11-23 01:04:10,['1.4'],[]
+4251783,<issues> <bug> This is most likely what causes issues; it may be a bug in Gson.,2010-11-23 01:04:10,['1.4'],[]
+4251783,"<correct> Although your TypeToken is correct for the use case, maybe it confuses Gson.",2010-11-23 01:04:10,['1.4'],[]
+4251783,"<confuses> Although your TypeToken is correct for the use case, maybe it confuses Gson.",2010-11-23 01:04:10,['1.4'],[]
+4305342,"<unable> I have looked into Gson and Jackson, but, was unable to conceive a solution for myself.",2010-12-10 16:37:02,['1.4'],[]
+4310273,"<odd> And specifically the usual (IMO) case where you want to deal with Java objects, can be made one liner:
+
+Other libs like Gson also support one-line methods; why many examples show much longer sections is odd.",2010-11-30 03:29:03,['1.4'],[]
+4310273,"<support> <like> And specifically the usual (IMO) case where you want to deal with Java objects, can be made one liner:
+
+Other libs like Gson also support one-line methods; why many examples show much longer sections is odd.",2010-11-30 03:29:03,['1.4'],[]
+4348044,"<support> So you should be able to force use of something Gson recognizes, if it does not support ISO-8601 format Jackson defaults to using.",2010-12-03 17:13:26,['1.4'],[]

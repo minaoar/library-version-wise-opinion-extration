@@ -11,6 +11,8 @@ import logging
 file_dir = os.path.dirname(__file__)
 sys.path.append(file_dir)
 from process_post_text import *
+from library_version_info_processor import *
+
 
 data_dir = "../data/"
 
@@ -92,6 +94,8 @@ else:
 # convert myresult to list of tuples
 myresult = [tuple(x) for x in myresult.values]
 
+opinion_list = []
+
 s = 1
 for (id, body, creationdate, lasteditdate, date) in myresult:
     #print(id, creationdate)
@@ -106,12 +110,16 @@ for (id, body, creationdate, lasteditdate, date) in myresult:
     # print each sentence in one line with sentence counter
     for i, sentence in enumerate(sentences_with_adjectives):
         print(i+s, sentence)
+        opinion_list.append((id, sentence, date, get_tentative_versions(keywords[0], date), get_tentative_versions(keywords[1], date)))
 
     s = s + len(sentences_with_adjectives)
 
     #print('#####################')
 
     
+opinion_list_pd = pd.DataFrame(opinion_list, columns=['id', 'sentence', 'date', keywords[0]+'_version', keywords[1]+'_version'])
+opinion_list_pd.to_csv(data_dir+get_file_name()[:-4]+"_opinion.csv", index=False)
+
 if CACHED_DATA == False:
     cursor.close()
     cnx.close()
