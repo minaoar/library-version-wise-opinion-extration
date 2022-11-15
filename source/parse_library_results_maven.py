@@ -6,6 +6,8 @@ import cloudscraper
 import pandas as pd
 from tabulate import tabulate
 
+data_dir = "../data/"
+
 def get_site_content(site_url):
 
     scraper = cloudscraper.create_scraper(delay=10,   browser={'custom': 'ScraperBot/1.0',})
@@ -109,7 +111,12 @@ def get_library_results(library_name):
     # get the library details page content
     response = get_site_content(library_details_page)
     # parse the library details page
-    parse_library_details_page(response)
+    artifact_info_table, version_info_table = parse_library_details_page(response)
+
+    # save the tables to csv files
+    artifact_info_table.to_csv(data_dir+library_name+"_artifact_info.csv", index=False)
+    version_info_table.to_csv(data_dir+library_name+"_version_info.csv", index=False)
+    
     
 if __name__ == "__main__":
     get_library_results("gson")
