@@ -1,0 +1,788 @@
+id,body,creationdate,lasteditdate,date
+2587471,"I have a Java process that is working on some large data set in memory. I've seen it crash with a SIGSEGV signal sometimes, so i was wondering some potential causes and fixes could do.
+Caues:
+
+JVM bug
+Native library bug (e.g pthreads etc)
+JNI bug in user code
+
+Fixes:
+
+Upgrade to new JVM
+
+In my particular case, this is the output form the log file (pruned)
+
+[error occurred during error reporting (printing date and time), id 0xb]
+",2010-04-06 18:56:47,2010-04-06 20:33:39,2010-04-06 20:33:39
+3458930,"Continuing from this question.
+I'm having trouble deserializing the following json array (Sorry for the size):
+
+If I paste it into a json-viewer, I get this structure:
+
+Now, the array containing the arrays with the coordinates has a variable size. So I figured that in java, this whole object whould be an array, containing a collection of arrays, with each array containing a . Something like 
+But gson does not accept this. I get the following error message:
+
+Which seems weird, as  doesnt look like an array to me. But it might have confused me to the point where I'm lost, more or less...
+",2010-08-11 13:44:44,2017-05-23 12:01:44,2017-05-23 12:01:44
+3625291,"Gson is Google's open-source library for serializing and deserializing Java objects to/from JSON.
+The Gson project is hosted at and available for download from https://github.com/google/gson and licensed using the Apache License 2.0
+Latest release: 2.8.6 released on Oct 4, 2019
+Project Links
+
+Gson API: Javadocs for the current Gson release
+Gson guide: This guide contains examples on how to use Gson in your
+code.
+Gson Roadmap: Details on upcoming releases
+
+Alternatives
+Alternative Java-to-JSON binding solutions with similar APIs include FastJSON, Jackson, and svenson.  Yet more Java-to-JSON libraries are listed at json.org.
+Performance
+The latest performance benchmarks for these and other JSON serialization and deserialization solutions for Java are available at https://github.com/eishay/jvm-serializers/wiki.
+",2010-08-30 17:16:34,2020-08-25 14:39:35,2020-08-25 14:39:35
+4147245,"You need to disable HTML escaping.
+
+",2010-11-10 17:32:15,2019-08-17 05:55:50,2019-08-17 05:55:50
+4889847,"JSON (JavaScript Object Notation) is a serializable data interchange format intended to be machine- and human-readable.
+JSON is defined by RFC 7159 which is completely language independent, but it uses conventions familiar to programmers of the C-family of languages, including c, c++, c#, java, javascript, perl, python, and many others. These properties make JSON an ideal data-interchange language to use with RESTful APIs or ajax. It is often used instead of xml because of its lightweight and compact structure.
+Many programming languages provide methods for parsing a JSON-formatted text string into a native object and vice versa. For example, JavaScript in modern browsers and other environments includes the methods JSON.parse() and JSON.stringify().
+The JSON format is based on two types of structures:
+
+Collection of name/value pairs
+
+
+An ordered list of values (more commonly referred to as an array)
+
+
+
+JSON defines six types of values: null, numbers, strings, booleans, arrays and objects. With regard to objects, the order of members is not significant, and the behavior of a JSON parser when duplicate member names are encountered is undefined.
+Note that JSON is not the same thing as JavaScript object literals. Rather, JSON is a common format to serialize from and deserialize to objects in most languages. For more information, see There is no such thing as a JSON object in JavaScript.
+Shortly after it was created, JSON validation was added following the description set out by Douglas Crockford of json.org in RFC 4627. It has since been expanded to also validate both current competing JSON standards RFC 7159 and ECMA-404.
+
+Advantages
+
+JSON is a lightweight data-interchange format (no markup bloat)
+JSON is language independent.
+JSON is ""self-describing"" and easy to understand.
+JSON can be natively understood by JavaScript parsers, including node.js
+
+
+JSON libraries
+
+Java: JSR 353 (JSONP), FasterXML Jackson, Google Gson, JSON-Java, or jsoniter
+JavaScript: json2.js (only needed in old browsers without native JSON support)
+Ruby: JSON implementation for Ruby
+C#: JSON.Net
+Python 2: JSON encoder and decoder
+Python 3: JSON encoder and decoder
+PHP: JSON extension for PHP
+C:
+
+Jansson – C library for encoding, decoding and manipulating JSON.
+jsmn – Minimalistic JSON parser.
+json-c – Library for working with JSON.
+parson – Lightweight JSON library written in C.
+WJElement – Advanced JSON manipulation library, with support for JSON Schema.
+YAJL – Fast C JSON streaming parser library.
+cJSON – Ultralightweight JSON parser
+
+
+C++:
+
+nlohmann/json – JSON for Modern C++
+RapidJSON – Fast JSON parser/generator with SAM/DOM API
+taoJSON – header-only JSON library
+
+
+Scala: play-json, json4s, spray-json, and much more as elaborated at What JSON library to use in Scala?
+
+
+Browser Addons
+
+Pretty JSON for Chrome
+JSONView for Firefox
+JSON Formatter for Chrome
+
+
+Useful links
+
+Wikipedia page
+JSON Example
+JSON: What It Is, How It Works, & How to Use It
+JSON on Mozilla Developer Network
+JSONLint
+JSON-Introduction By Microsoft
+Get Started With JSON (Introduction at Wired)
+JSON library for old browsers (IE8 and below)
+FAQ on Stack Overflow
+jq (Command line JSON processor)
+JSON Formatter & Validator
+XML and JSON -- Advantages and Disadvantages?
+
+
+Books
+
+Beginning JSON
+Introduction to JavaScript Object Notation A To-the-Point Guide to JSON
+JavaScript JSON Cookbook
+JavaScript and JSON Essentials
+
+
+See also
+jsonp xml s-expression javascript rest jackson gson markup
+",2011-02-03 18:02:56,2021-11-01 01:15:04,2021-11-01 01:15:04
+6187826,"You could implement a custom JsonDeserializer and register it with GSON.
+
+Bear in mind that this code has not been tested.
+",2011-05-31 12:50:31,2017-08-07 00:13:15,2017-08-07 00:13:15
+6454889,"How do you convert this String into gson.JsonArray?
+
+This is my Code:
+
+Is this the way to convert this Collections string to JSonArray?
+",2011-06-23 13:32:06,2011-06-23 13:53:01,2011-06-23 13:53:01
+6455348,"I don't see the problem. This code runs fine for me:
+
+The only problem maybe is that you failed to properly escape the double quotes in your s string literal.
+",2011-06-23 14:05:42,,2011-06-23 14:05:42
+6455383,"To have a string value inside your JSON array, you must remember to backslash escape your double-quotes in your Java program. See the declaration of s below.
+
+Your code in the main() method works fine. Below is just a minor modification of your code in the main() method.
+
+Lastly, remember to prefix your statement ""com.google.gson.*"" with the keyword ""import"", as shown below.
+
+",2011-06-23 14:07:28,2011-06-23 14:19:03,2011-06-23 14:19:03
+6621845,"I'm new to GSON and am really struggling to parse this data:
+
+Here's what I have sofar, but I think it's wrong...
+
+Here's an error I'm getting:
+
+Can anyone please point me in the right direction? 
+Many thanks in advance,
+",2011-07-08 08:25:08,2012-09-06 04:06:51,2012-09-06 04:06:51
+7310424,"Google's GSON can do this in a nice way:
+
+or since it is now recommended to use the static parse method from JsonParser you can also use this instead:
+
+Here is the import statement:
+
+Here is the Gradle dependency:
+
+",2011-09-05 16:06:27,2021-07-20 18:57:02,2021-07-20 18:57:02
+8265039,"How to parse this Json using Gson and display the Placetype _Name and Place details?
+I have this json and need help for parsing and and displaying the Placetype _Name and Place details.
+
+",2011-11-25 05:15:47,,2011-11-25 05:15:47
+8269027,"In my app i have a Spinner with list of places(such as airport,mall..).When i click on Airport place from spinner,it should show list of airports auch as(sahara,juhu) below spinner in listview.I have tried this but it mixes list of places of airports and malls.
+Whts wrong in this.Plz help me.Below  is the json which i m using:-
+
+///////////////////////////////////
+
+",2011-11-25 12:18:13,,2011-11-25 12:18:13
+8766612,"I recently decided to try to use my Maven project as a dependency of another project. I built the project and it installed to my local repository:
+
+I then set up the other Maven project to use this dependency (see the first dependency in the dependencies block):
+
+
+However, when I ran mvn eclipse:eclipse (I tried -U which didn't work) on the second project, the stamme-0.0.1-SNAPSHOT was not added to the .classpath file:
+
+Does anyone know why this might be occurring? I'm quite happy - and have been able to manage Maven harmoniously - with my version of Eclipse, so would rather not use m2eclipse.
+Cheers.
+",2012-01-07 01:36:52,,2012-01-07 01:36:52
+8932560,"I have a MyMapActivity with private class extending AsyncTask for purpose to do request on server every time when map section is changed (onMove() method). Response from server is JSON data string which could be about 1-3 MB. So I need to avoid multiple calls to server when user is moving the map to avoid OutOfMemory. For that reason I'm trying to check if my own AsyncTask is cancelled (on every onMove() start) and if not(I suppose that indicates about performing doInBackground() method) I'm tying to cancel it. But regardless  of this I still have a 
+
+01-19 20:45:05.660: ERROR/MapActivity(2482): Couldn't get connection factory client
+01-19 20:45:40.600: ERROR/Tethering(96): active iface (usb0) reported as added, ignoring
+01-19 20:47:15.260: ERROR/dalvikvm-heap(2482): Out of memory on a 11908-byte allocation.
+01-19 20:47:15.270: ERROR/dalvikvm(2482): Out of memory: Heap Size=24519KB, Allocated=23091KB, Bitmap Size=101KB
+01-19 20:47:15.410: ERROR/dalvikvm-heap(2482): Out of memory on a 7690-byte allocation.
+01-19 20:47:15.420: ERROR/dalvikvm(2482): Out of memory: Heap Size=24519KB, Allocated=23088KB, Bitmap Size=101KB
+01-19 20:47:15.570: ERROR/dalvikvm-heap(2482): Out of memory on a 7656-byte allocation.
+01-19 20:47:15.590: ERROR/dalvikvm(2482): Out of memory: Heap Size=24519KB, Allocated=23090KB, Bitmap Size=101KB
+01-19 20:47:15.730: ERROR/dalvikvm-heap(2482): Out of memory on a 9098-byte allocation.
+01-19 20:47:15.740: ERROR/dalvikvm(2482): Out of memory: Heap Size=24519KB, Allocated=23097KB, Bitmap Size=101KB
+01-19 20:48:01.850: ERROR/dalvikvm-heap(2482): Out of memory on a 8176-byte allocation.
+01-19 20:48:01.850: ERROR/dalvikvm(2482): Out of memory: Heap Size=24519KB, Allocated=22767KB, Bitmap Size=101KB
+01-19 20:48:01.970: ERROR/dalvikvm-heap(2482): Out of memory on a 12022-byte allocation.
+01-19 20:48:01.980: ERROR/dalvikvm(2482): Out of memory: Heap Size=24519KB, Allocated=22768KB, Bitmap Size=101KB
+01-19 20:48:02.110: ERROR/dalvikvm-heap(2482): Out of memory on a 8936-byte allocation.
+01-19 20:48:02.119: ERROR/dalvikvm(2482): Out of memory: Heap Size=24519KB, Allocated=22769KB, Bitmap Size=101KB
+01-19 20:48:07.220: WARN/dalvikvm(2482): threadid=20: thread exiting with uncaught exception (group=0x400259f8)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482): FATAL EXCEPTION: AsyncTask #9
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482): java.lang.RuntimeException: An error occured while executing doInBackground()
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at android.os.AsyncTask$3.done(AsyncTask.java:200)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at java.util.concurrent.FutureTask$Sync.innerSetException(FutureTask.java:273)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at java.util.concurrent.FutureTask.setException(FutureTask.java:124)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:307)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at java.util.concurrent.FutureTask.run(FutureTask.java:137)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1068)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:561)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at java.lang.Thread.run(Thread.java:1102)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482): Caused by: java.lang.OutOfMemoryError
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at java.lang.String.(String.java:468)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at java.lang.AbstractStringBuilder.toString(AbstractStringBuilder.java:659)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at java.lang.StringBuilder.toString(StringBuilder.java:664)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at com.google.gson.stream.JsonReader.nextString(JsonReader.java:995)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at com.google.gson.stream.JsonReader.nextValue(JsonReader.java:810)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at com.google.gson.stream.JsonReader.objectValue(JsonReader.java:790)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at com.google.gson.stream.JsonReader.quickPeek(JsonReader.java:385)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at com.google.gson.stream.JsonReader.peek(JsonReader.java:348)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at com.google.gson.internal.bind.TypeAdapters$12.read(TypeAdapters.java:322)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at com.google.gson.internal.bind.TypeAdapters$12.read(TypeAdapters.java:334)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:86)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:170)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:38)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at com.google.gson.internal.bind.ArrayTypeAdapter.read(ArrayTypeAdapter.java:71)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:86)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:170)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at com.google.gson.Gson.fromJson(Gson.java:720)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at com.google.gson.Gson.fromJson(Gson.java:660)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at net.amagumo.realestate.MyMapActivity$MyTask.getHttpContent(MyMapActivity.java:444)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at net.amagumo.realestate.MyMapActivity$MyTask.doInBackground(MyMapActivity.java:393)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at net.amagumo.realestate.MyMapActivity$MyTask.doInBackground(MyMapActivity.java:1)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at android.os.AsyncTask$2.call(AsyncTask.java:185)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:305)
+01-19 20:48:07.350: ERROR/AndroidRuntime(2482):     ... 4 more
+01-19 20:48:07.450: WARN/ActivityManager(96):   Force finishing activity net.amagumo.realestate/.MyMapActivity
+01-19 20:48:21.290: WARN/TimeThread(294): conver time failed
+01-19 20:48:42.899: WARN/TimeThread(294): conver time failed 
+
+Here is my activity class: 
+
+
+public class MyMapActivity extends MapActivity implements LocationListener, OnTouchListener, OnMoveListener, MyMapItemClickedListener, DefaultActivity {
+
+    MyMapView  mv;
+    MapController mc;
+    LocationManager lm;
+    MyItemizedOverlay myOverlay;
+    DatabaseAdapter db;
+    AdvertResult advertResult;
+    String callerActivityString;
+
+    MyTask mytask;
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Log.d(Constants.DEBUG_TAG, ""MAP - create"");
+        setContentView(R.layout.map);
+
+        db = new DatabaseAdapter(getApplicationContext()).open();
+        mv = (MyMapView)this.findViewById(R.id.mapView);
+        mc = mv.getController();
+        lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+
+        mv.setOnTouchListener(this);
+        mv.setmOnMoveListener(this);
+
+        mv.setSatellite(true);
+
+        Drawable marker=getResources().getDrawable(R.drawable.ic_maps_indicator_startpoint_list);
+
+        int markerWidth = marker.getIntrinsicWidth();
+        int markerHeight = marker.getIntrinsicHeight();
+        marker.setBounds(0, markerHeight, markerWidth, 0);
+
+        myOverlay = new MyItemizedOverlay(marker);
+        myOverlay.setMyMapItemClickedListener(this);
+
+        mv.getOverlays().add(myOverlay);
+
+        advertResult = new AdvertResult();
+
+        mytask = new MyTask();
+
+
+    }
+
+
+    public void completeMap(){
+        Log.d(Constants.DEBUG_TAG_MAPS, ""completing map - START"");
+        for(AdvertSimple is : advertResult.getAdvertSimpleList()){
+            if(is.getAdress().getLat()!=null && is.getAdress().getLon()!=null){
+                GeoPoint gp = new GeoPoint(is.getAdress().getLat(), is.getAdress().getLon());
+                myOverlay.addItem(gp, ""Advert"", ""snippet"");
+            }
+        }
+        Log.d(Constants.DEBUG_TAG_MAPS, ""completing map - END"");
+    }
+
+    @Override
+    protected boolean isRouteDisplayed() {
+        return false;
+    }
+
+    public void onLocationChanged(Location loc) {
+    }
+
+    public void onProviderDisabled(String provider) {
+    }
+
+    public void onProviderEnabled(String provider) {
+    }
+
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+    }
+
+    public boolean onTouch(View v, MotionEvent event) {
+        return false;
+    }
+
+    public void onMove(MapView mapView, GeoPoint center, boolean stopped) {
+
+        if(!mytask.isCancelled()){
+            Log.d(Constants.DEBUG_TAG_MAPS, ""async task is cancelling - ATTEMPT"");
+            mytask.cancel(true);
+            System.gc();
+        }
+        if(stopped){
+
+            Log.d(Constants.DEBUG_TAG_MAPS, ""finished move/zoom action"");
+
+            Integer latspan  = mv.getLatitudeSpan();
+            Integer lonspan  = mv.getLongitudeSpan();
+
+            Integer maxlat = center.getLatitudeE6() + (latspan/2);
+            Integer maxlon = center.getLongitudeE6() + (lonspan/2);
+            Integer minlat = center.getLatitudeE6() - (latspan/2);
+            Integer minlon = center.getLongitudeE6() - (lonspan/2);
+
+            mytask = new MyTask();
+            mytask.execute(this, null, new ResultComposite());
+
+        }
+    }
+
+    public MapRectangle getRectangle(){
+
+        GeoPoint center = mv.getMapCenter();
+
+        Integer latspan  = mv.getLatitudeSpan();
+        Integer lonspan  = mv.getLongitudeSpan();
+        Integer maxlat = center.getLatitudeE6() + (latspan/2);
+        Integer maxlon = center.getLongitudeE6() + (lonspan/2);
+        Integer minlat = center.getLatitudeE6() - (latspan/2);
+        Integer minlon = center.getLongitudeE6() - (lonspan/2);
+
+        return new MapRectangle(maxlat, maxlon, minlat, minlon);
+    }
+
+
+    @Override
+    public void completeAction(ResultComposite result) {
+        Log.d(Constants.DEBUG_TAG_MAPS, ""async tasc is going to complete in caller activity - OK"");     
+        if(result!=null){
+            advertResult.setAdvertSimpleList(result.getAdvertSimpleList());
+            completeMap();  
+        }
+
+
+    }
+    @Override
+    public RequestParams getRequestParams() {
+        RequestParams params = new RequestParams();
+        params.setDb(db);
+        params.setRectangle(getRectangle());
+        return params;
+    }   
+
+    private class MyTask extends AsyncTask{
+
+        public MyMapActivity ma;
+        public HttpClient httpclient;
+
+        @Override
+        protected ResultComposite doInBackground(Object... params) {
+
+            Log.d(Constants.DEBUG_TAG_MAPS, ""async tasc do in backgrounf - START"");
+            ma = (MyMapActivity) params[0];
+            ResultComposite rc = new ResultComposite();
+            RequestParams rp = ma.getRequestParams();
+
+            MapRectangle rectangle = rp.getRectangle();
+
+            RequestJSONObject ro = new RequestJSONObject(rectangle.getMinlat(), rectangle.getMinlon(), rectangle.getMaxlat(), rectangle.getMaxlon());
+            Gson gson = new Gson();
+            String json = gson.toJson(ro);
+            ResponseJSONObject responseJSONObject = getHttpContent(json, Constants.HTTP_REQUEST_MAP);
+            AdvertSimpleJSON[] AdvertSimpleJSONarray = responseJSONObject.getAdvertySimple();
+
+            List simples = DataHelper.convertAdvertSimpleJSONArray2AdvertSimpleList(rp.getDb(),  AdvertSimpleJSONarray);
+
+            rc.setAdvertSimpleList(simples);
+
+            return rc;
+
+        }
+
+        @Override
+        protected void onPostExecute(ResultComposite result) {
+            super.onPostExecute(result);
+            Log.d(Constants.DEBUG_TAG_MAPS, ""async tasc is going to complete in caller activity - ATTEMPT"");
+            ma.completeAction(result);
+
+        }
+
+
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+            Log.d(Constants.DEBUG_TAG_MAPS, ""async task is cancelling - OK"");
+        }
+
+        private ResponseJSONObject getHttpContent(String json, String requestType){
+
+            ResponseJSONObject responseJSONObject = null;
+            HttpPost post = new HttpPost(Constants.SERVER_MAP_URL);
+            try {
+                Log.d(Constants.DEBUG_TAG_MAPS, ""try"");
+
+                HttpEntity entity = new StringEntity(json);
+                post.setEntity(entity);
+
+                HttpParams httpParameters = new BasicHttpParams();
+                HttpConnectionParams.setConnectionTimeout(httpParameters, 15000);
+                HttpConnectionParams.setSoTimeout(httpParameters, 150000);
+
+                httpclient  = new DefaultHttpClient(httpParameters);
+
+                BasicHttpResponse  response = (BasicHttpResponse ) httpclient.execute(post);
+                if(response.getStatusLine().getStatusCode() == 200){
+                    Log.d(Constants.DEBUG_TAG, ""response 200"");
+                    HttpEntity responseEntity = response.getEntity();
+                    Gson g = new Gson();
+                    BufferedReader reader = new BufferedReader ( new InputStreamReader ( responseEntity.getContent()) );
+                    responseJSONObject = g.fromJson(reader, ResponseJSONObject.class);
+                    reader.close();
+                    System.gc();
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Log.d(Constants.DEBUG_TAG_MAPS, ""returning http results"");
+
+            return responseJSONObject;
+        } 
+
+
+
+    }
+}
+
+
+
+
+What else should I do? I have tried to perform consume http entity. 
+Is my logic with handling AsynTask correct? 
+",2012-01-19 20:07:04,,2012-01-19 20:07:04
+9065247,"Using GSON
+
+Edit: Since GSON v2.8.6 the instance method  is deprecated. You have to use the static method :
+
+",2012-01-30 14:20:02,2020-01-16 05:39:44,2020-01-16 05:39:44
+9498401,"After a couple of months working with Android and I have a problem. I have a project with Maven and Spring-Android rest using template. The project works correctly with Android versions prior to 3.0. I searched for solutions or examples and have not gotten it to work. I would like to know if a failure of my pom.xml configuration, dependencies old ... I would appreciate the help. I currently use the following pom.xml:
+
+
+I found another example in this link but I could not make it work:
+https://github.com/SpringSource/spring-android-samples/blob/master/spring-android-showcase/client/pom.xml
+The call to rest in the code is a basic example:
+
+Thank you.
+",2012-02-29 11:37:02,,2012-02-29 11:37:02
+9575009,"I'm trying to follow the @BalusC advice here.
+(I'm writing here now because it's unrelated with previous question).
+So I need to get data from my database and show in chart using JavaScript, this is an example.
+I'm just doing this sample so I can understand how to show some data from the server side to the client side.
+My bean:
+
+To help understand the spline-plot-bands.js file.
+
+As you can see in the spline-plot-bands.js file.
+All that matters for me is this part (I guess):
+
+How could I send something like this from my server side to this javascript ?
+I think I'm close to find out how to use gson, javascript with jsf, but I still don't get it how to finish this.
+Could someone help me with this ?
+",2012-03-05 22:27:07,2017-05-23 10:24:24,2017-05-23 10:24:24
+9607175,"The JS expects a , but you're feeding a . Fix it accordingly:
+
+And edit your  file to use it instead of the hardcoded values:
+
+",2012-03-07 18:37:07,,2012-03-07 18:37:07
+9623682,"i have this code: 
+
+My problem is the next error:
+03-08 19:07:42.899: E/AndroidRuntime(959): java.lang.Error: Error en el getcom.google.gson.JsonParseException: Expecting array but found object: com.jorgechu.circuitlacostera.Objetos.Carrera@405852d0
+I waiting result from php webservice, the result may next JSON:
+
+And I have a object Carrera where store this information.
+I hope somepeople help me.
+Thank you.
+",2012-03-08 19:34:28,,2012-03-08 19:34:28
+9918341,"I have this class in JavaScript:
+
+How should I represent this class in Java so I can use JSON operations such as ?
+",2012-03-29 02:31:29,2012-03-29 10:25:55,2012-03-29 10:25:55
+10677952,"Try using GSON >= 2.2.1 and look for the TypeAdapterFactory class.
+This will give you the ability to inspect the Object before you deserialize it and apply custom code while avoiding recursions. 
+Here is an example of the getDelegateAdapter you can use.
+",2012-05-20 23:03:52,2017-03-13 18:40:08,2017-03-13 18:40:08
+10930792,"You can use Gson for that:
+Maven dependency:
+
+Java code:
+
+",2012-06-07 11:20:36,2017-01-16 15:00:53,2017-01-16 15:00:53
+11106279,"I converted a running Java web project to Maven based project, everything works fine except starting the tomcat server from eclipse. I´m getting a strange SQLException:
+
+I´m using MySQL, Tomcat, Eclipse and this is the pom which I newly wrote:
+
+I think it has nothing to do with the persistence.xml because everyting was running fine before I converted to maven but preventively this is my persistence_unit:
+
+",2012-06-19 17:34:38,,2012-06-19 17:34:38
+11662103,"this answer came from their support. 
+you use these maven settings and add them to your build.scala file.
+it uses gson so you need that too.
+
+and here is my build.scala for it:
+
+and of course run reload and update after that. it should run successfully.
+",2012-07-26 03:52:14,,2012-07-26 03:52:14
+13406177,"When you launch JNLP file first time, it installs the application (defined in JNLP xml file) to JVM (Control Panel -> Java -> General -> View).
+ configuration allows you to synchronize your version with server and install new if server has new one. If you doesn't have connectivity with server - nothing will happen.
+
+What would be the effect if someone use  tag in their jnlp file.
+
+Second one will be affected.
+Here is JNLP example:
+
+",2012-11-15 21:04:54,2015-02-12 08:08:51,2015-02-12 08:08:51
+13681264,"I've integrated Jbehave test in Hudson as A Maven goal but whenever I run Test via Hudson-web-interface, I get following error
+
+Please tell me what should I do to resolve this issue.
+PS: I am not using any Source Code Management.
+",2012-12-03 10:25:14,,2012-12-03 10:25:14
+14149405,"Yes you can, I was working with this same case but I found that GSon adds all this data to my JSON String:
+
+If you implement a wrapper class to serialize your DAO into a POJO you will only find the attributes that you get from the database.
+",2013-01-04 00:20:36,,2013-01-04 00:20:36
+14910124," Reply for Mumbai, India 
+
+ Reply for Sydney, Australia 
+
+
+ Problem 
+This is the reply from  for two different cities. In case of Mumbai, it just gives data about one city however in case of Sydney, it gives the data about many locations around Sydney.  
+I want to be able to extract information from this  reply in a consistent manner. So far, I use  methods for some not-so-reliable extraction.
+How do I go about doing that ?  
+ Code 
+
+",2013-02-16 12:10:09,,2013-02-16 12:10:09
+14914305,"
+
+In order to deserialize it using  I have created classes (not exhaustive) as follows:  
+
+
+
+
+
+
+
+and so on 
+ Questions 
+Am I doing it correctly ?
+Are getter/setter methods needed for  to work ? I mean if I override the  method of some class to get the data in the format I want and avoid writing getter/setter will that work?
+",2013-02-16 19:35:36,2013-02-16 19:49:56,2013-02-16 19:49:56
+15620862,"According to GSon documentation an exception is already thrown if the json stream can't be deserialized according to the type you provided:
+
+Throws:
+   - if json is not a valid representation for an object of type classOfT
+
+But this is an unchecked exception, if you want to provide a custom exception you should try with
+
+",2013-03-25 17:15:47,2016-11-04 03:42:20,2016-11-04 03:42:20
+15957280,"I have a completely functional Java Play 2.0.4 application working just fine that I'm trying to migrate to 2.1
+I followed the Migration Guide and implemented all the changes. The app compiles and starts correctly. However, when I try to access any page I getting a :
+
+Of course the  controller exists and the route is defined in  (as it was before the migration on the working 2.0.4 version).
+From the stack trace, I suspect it has something to do with the router. Here's the full trace:
+
+And this is my  file:
+
+I can´t get the app up and running.
+Any ideas? Thanks!
+Update: I added the full  file for reference.
+",2013-04-11 19:32:04,2013-04-12 15:36:31,2013-04-12 15:36:31
+16103129,"Hi guys im trying to add a new bonecp version to my play framework 2.0.4 app at heroku,
+but im getting
+
+It can't seem to find google guava at typesafe.
+I works locally but not at heroku.
+Something is probably wrong with the resolvers but i don't know what.
+Here is my Build.scala configuration:
+
+Thanks for any help!
+",2013-04-19 11:03:23,2013-04-19 12:57:15,2013-04-19 12:57:15
+16414903,"Hi I've been strugling with this for hours, I want to send my POJO in JSON format using Primefaces Request Context to a Highchart inside my JSF to update its value.
+Basically I am following this solution of @Bhesh Gurung from his own stackoverflow question
+but I cant seem to make it work.  Right now it is throwing a:
+
+Cannot find component with identifier ""pieData"" referenced from ""j_idt31"".
+
+I want to sucessfully create a highchart using the JSON data through the Primefaces Request Context.  Please help Thanks in advance.
+This are my codes below
+
+My xhtml page5.xhtml
+
+
+
+
+
+
+UPDATE: MODIFIED XHTML
+
+",2013-05-07 08:48:39,2017-05-23 11:44:05,2017-05-23 11:44:05
+16749837,"According to Gson API documentation, Gson provides default serialization/deserialization of , so basically it should be serialized and deserialized using the standard  and  methods, as with any other type.
+",2013-05-25 13:04:05,2020-06-25 10:02:14,2020-06-25 10:02:14
+17009952,"In this case its better to use a  as opposed to a , for the simple reason that serializers have access to their serialization context:
+
+The above sample code illustrates how to delegate serialization of target objects back to the main marshaller. The main advantage of this (apart from avoiding complicated workarounds) is that you can still take advantage of other type adaptors and custom serializers that might have been registered in the main context. Note that registration of serializers and adapters use the exact same code:
+
+If you find that you need to stick with an adapter, then you can use an embedded Gson proxy to serialize the Pair properties for you, with the disadvantage that you lose access to custom registrations that you made on the parent Gson proxy:
+
+",2013-06-09 13:12:54,2017-07-30 06:33:00,2017-07-30 06:33:00
+17039732,"I have my Custom  MySqlCursorAdapter. I want use   in my class  but, I have an error when onclick any button on.CopyOfMainActivity activity
+PageFragment.java
+
+CopyOfMainActivity.java
+
+Log
+
+My_list_item.xml
+
+Pager.xml
+
+activity_page_fragment.xml
+
+What I do not correctly? How I understand error appear in ""destroy"" activity
+",2013-06-11 08:36:02,,2013-06-11 08:36:02
+17055843,"I'm loading local Couchbase instance with application specific json objects.
+Relevant code is:
+
+Method to store entry (I'm using suggestions from Bulk Load and Exponential Backoff):
+
+When continuosSet method called for a large amount of objects to store (single thread) e.g.
+
+it generates CheckedOperationTimeoutException inside of continuosSet method in result.get() operation.
+
+Can someone shed light into this how to overcome and recover from this situation? Is there a good technique/workaround on how to bulk load in Java client for Couchbase? I already explored documentation Performing a Bulk Set which is unfortunately for PHP Couchbase client.
+",2013-06-12 00:17:06,2013-06-12 12:27:44,2013-06-12 12:27:44
+17197589,"I have an API made with Jersey (restful web service), very simple. I have been able to make request/answers through my android application.
+Now I'm developing a web backend in order to manage data. The thing is that when I make calls with ajax, everytime the answer is passing through the ""error"" part.
+Strange as it may seem, giving a glance to firebug the call/answer seem to be correctly made, with the final 200 OK answer and the right JSON data.
+The javascript code is the following:
+
+The JSON text written when I make the call through the browser is similar to this:
+
+As I have been able to read, the error could be because the answer is not in JSONP format (restful WS is answering with a JSON format text), so the line dataType: ""jsonp"" can't be deleted. If I delete it, the answer is not made correctly.
+Is there something to add to my web service? For example, how to add JSONP support in this code:
+
+Thanks in advance and I hope everyone can understand me :).
+",2013-06-19 17:30:04,2013-06-19 17:36:58,2013-06-19 17:36:58
+17199878,"Your data are there, they're just encoded as base64 for performance reasons (take a look to this comparison). What you pay for that is the overhead needed to decode it in the client (but you'll save a lot of bandwidth and then time).
+I strongly suggest you keep them in that format (because it's much more compact than the plain JSON array representation). You can decode them in JavaScript using a simple library to encode/decode base64. For example this one.
+If you really need to serialize your array in that way then change your serialization library (for example Gson serializes them in the way you need) or to customize library you're using. For example FlexJSON to customize serialization has a powerful mechanism called Transformers. Just write your own tranformer to override default  behavior for  implementing the same logic of  and you'll be done.
+Edit
+In your fiddle you're decoding to a string, algorithm isn't different to decode to an array, let's start to change decode function to this:
+
+Please note that this is just an example to explain the algorithm, it doesn't perform any check, it doesn't remove padding and it's even terribly slow. A more decent solution would allocate the full array before (or to use an ) because final array size can be computed from input string length. Look here or here for complete implementation.
+",2013-06-19 19:39:03,2013-06-20 14:07:44,2013-06-20 14:07:44
+17282226,"we are upgrading struts2 version from 2.0.9 to 2.3.14.2. I am getting following exception when try to print pdf file. I have googled for this error, found its related struts.xml configuration. But dont know what changes are need to do. anyone can help me with this?
+
+thanks in advance,
+
+",2013-06-24 18:17:11,2013-06-24 20:48:00,2013-06-24 20:48:00
+17389085,"Recently I've migrated from Archiva to Sonatype Nexus.
+I'm trying to use Jars from 3rd party repositories and Nexus does not cache it into the local repository.
+I've searched for answers in this section and couldn't one that answers the question.
+Here is what I did... 
+I'm using settings.xml :
+
+I've also created proxy repositories for all the 3rd party repositories I'm using, and ADDED THEM TO THE NEXUS PUBLIC GROUP.
+Next, I've run the command:
+
+and got the following error:
+
+The result in the local repo is that it does not contained any of the 3rd party jars it should.
+What do I miss here? 
+",2013-06-30 09:46:44,2014-09-22 21:53:55,2014-09-22 21:53:55
+17408894,"I thought that I could use the force layout for drawing my simplified network plot.
+I set up my links to have the same target with various link distances from separate sources, but when I plot it out I get the following plot:
+
+The plot is technically correct but I want that point in the top left to be in the center with the other points going out from the center with different lengths.
+Should I not be using the force layout since this is a much simpler visualization? I thought the force layout would be helpful since it would help with the spacing but I guess I don't understand it well enough.
+Here's the code:
+
+",2013-07-01 16:05:06,2014-01-26 13:12:16,2014-01-26 13:12:16
+17411473,"We're analyzing some projects still builded with java 5 against sonar itself running on java 7. After upgrade to sonar 3.6 we get this exception:
+
+Sonar itself now requires at least java 6 (http://jira.codehaus.org/browse/SONAR-4044), but according to comment http://jira.codehaus.org/browse/SONAR-4044?focusedCommentId=325018&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-325018, this should not affect java version of analyzed code.
+Any ideas?
+",2013-07-01 18:44:56,,2013-07-01 18:44:56
+17621200,"I can't get rid of this error - i've tried with a new .m2 repo, and putting Nexus out of service to pull direct from M2 repos...
+I'm not really sure where to go here - this does seem to work on another build server, but not a couple others...
+Any help is appreciated :)   There was no change, other than upgrading from 3.4.1 to 3.6, and now 3.6.1...
+Please advise...
+
+",2013-07-12 18:00:14,,2013-07-12 18:00:14
+18011355,"I am trying to connect my app to Google drive.So first I tried samples.I followed the Google drive tutorial.First it ask to select the account and allow to take picture through camera and after that nothing happens(simply white screen).No toast displayed.I debugged and the it stopped at  
+
+Here I have given my sample
+
+}
+stopped at service.files().insert(body, mediaContent).execute(); and getting warning as vfy unable to resolve static field No error but nothing happened.Any suggestion please..
+the logcat stack trace is as follows
+
+",2013-08-02 07:38:40,2013-08-05 09:11:36,2013-08-05 09:11:36
+18239826,"I have all necessary dependencies:
+
+But still getting this on webapp startup:
+
+It appears on the Linux terminal as well as in Eclipse. So this is not m2e related.
+Here's the output of :
+
+I'm running my webapp using tomcat7-maven-plugin and it's goal . I don't know where to look if LogBACK is in the classpath, but I can see logback jar files when running goal  and looking into  of the created war file:
+
+pom.xml:
+
+",2013-08-14 18:46:21,2013-11-08 18:49:07,2013-11-08 18:49:07
+18378047,"I am new to Maven and I've almost completed writing pom.xml for, but everytime I go a little bit forward I get another error. This time this error looks like this :
+
+What's the problem ? I changed APIs and still get the same error. 
+Here is main part of my pom :
+
+
+",2013-08-22 10:33:59,,2013-08-22 10:33:59
+18463758,"You can use gson.jar to store class objects into SharedPreferences.
+You can download this jar from google-gson
+Or add the GSON dependency in your Gradle file:
+
+you can find latest version here
+Creating a shared preference:
+
+To save:
+
+To retrieve:
+
+",2013-08-27 11:09:53,2021-10-14 10:17:07,2021-10-14 10:17:07
+18507605,"I am trying to load .xlsx file. I think there is some conflicts with Axis2 and poi-ooxml-3.8 jar file. I got the below error : 
+
+I have to use webservice as well as loading xlsx file in my application. These are the jar files i have it in my application
+
+Please help me to figure out the issue. Thanks in Advance.
+",2013-08-29 09:50:01,2016-04-03 03:18:26,2016-04-03 03:18:26
