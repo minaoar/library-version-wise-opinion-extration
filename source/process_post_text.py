@@ -38,10 +38,14 @@ def remove_code_snippet(body_soup):
         code.decompose()
     return body_soup
 
-def process_raw_text(body):
+def process_raw_text_body(body):
     soup = BeautifulSoup(body, 'html.parser')
     remove_code_snippet(soup)
     body = soup.get_text()
+    return body
+
+def process_raw_text(body):
+    body = process_raw_text_body(body)
     sentences = breakdown_sentences(body)
     return sentences
 
