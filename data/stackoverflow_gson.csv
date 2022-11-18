@@ -1,0 +1,371 @@
+id,body,creationdate,lasteditdate,date
+23840,"I am with Brad on this one.  The more I work on immensely complex systems, the more I see the need to truly decouple objects.  He's right.  It's obvious that a needle shouldn't know anything about haystack, so 1 is definitely out.  But, a haystack should know nothing about a needle.  
+If I were modeling a haystack, I might implement it as a collection -- but as a collection of hay or straw -- not a collection of needles!  However, I would take into consideration that stuff does get lost in a haystack, but I know nothing about what exactly that stuff.  I think it's better to not make the haystack look for items in itself (how smart is a haystack anyway).  The right approach to me is to have the haystack present a collection of things that are in it, but are not straw or hay or whatever gives a haystack its essence.
+
+There's actually more I was going to type and abstract into interfaces and then I realized how crazy I was getting.  Felt like I was in a CS class in college... :P
+You get the idea.  I think going as loosely coupled as possible is a good thing, but maybe I was getting a bit carried away!  :)
+",2008-08-23 01:52:06,,2008-08-23 01:52:06
+80421,"The DSNIFF package has the mailsnarf utility. It can grab POP3 too. There are all sorts of other wonderful sniffing utilities there. Make sure you have the legal right before using these tools (the legal right to intercept other peoples traffic). I beleive the documentation has more information on the legality. According to the web page there are Windows and Mac OS X ports too.
+It would not be too hard to analyze the text output of the program.
+",2008-09-17 06:02:01,2008-09-17 06:08:20,2008-09-17 06:08:20
+153157,"There are some tools like Egypt http://www.gson.org/egypt/egypt.html that work, but only if you match the expected GCC version used to compile the code and the exact version of the callgraph generator. The same can be said about  codeviz http://www.csn.ul.ie/~mel/projects/codeviz/
+Other option is valgrind used in cachegrind mode (it generates a type of callgraph that you can follow from kcachegrind  program.
+",2008-09-30 14:05:48,,2008-09-30 14:05:48
+200869,"I've been trying to call Page Methods from my own JavaScript code but it doesn't work. If I use jQuery AJAX I can sucessfully call the Page Methods, but I need to do this from my own JavaScript code because we can't use third-party libraries (we are building our own library).
+Whenever I use jQuery AJAX methods I get the result of the Page Method, and when I use my custom JS methods I get whole page back from the AJAX Request.
+There must be something different in the way jQuery handles AJAX requests. Does anyone know what could it be?
+Below is the code I use to call the same Page Method with jQuery, which works, and the code that I'm using to call it on my own.
+jQuery
+
+Custom JS
+
+UPDATE: I've decided to accept Stevemegson's since his answer was the actual cause to my problem. But I'd like to share with yo a few alterantives I've found to this problem.
+Stevemegson's Answer:
+All I had to do was to change to a POST request and set the request header to JSON,that solved my problem on requesting Page Methods, but now I'm haing a hard time on handling the Response (I'll say more about that on another question).
+Here's the right code to get this stuff:
+
+Brendan's Answer: Through Brendan's answer I did a little research on the ICallBack Interface and the ICallBackEventHandler. To my surprise that's a way to develop aspx pages using Microsoft's implementation of AJAX Request's. This turns out to be a really interesting solution, since it dosen't require any JS Library to work out and it's inside .Net Framework and I believe that only a few people know about this stuff (at least those that are around me didn't know about it at all).
+If you wanna know more abou ICallBack check this link text on MS or just copy and paste Brendan's answer.
+A Third Solution:  Another solution I found was to instead of creating ASPX pages to handle my server side code I would implement HTML pages and call ASHX files that would do the same thing but they would use less bandwith than an ASPX page. One great about this solution is that I maged to make it work with POST and GET requisitions. Below is the code.
+ASHX Code:
+
+JavaScript File:
+
+With any of these three options we can make asynchronous calls without use JQuery, using our own Javacript or using the resources Microsoft embeeded on .Net Framework. 
+I hope this helps our some of you.
+",2008-10-14 12:02:57,2012-08-30 01:05:54,2012-08-30 01:05:54
+202577,"It gives a better idea of the intent when you use a static factory -- it also lets you have different factories that take the same argument types but have a different meaning.  For example, imagine if Bitmap had LoadFromResource(string) -- it would not be possible to have two constructors that both took string.
+EDIT: From stevemegson in the comments
+
+A static factory can also return null, and can more easily return an instance that it got from cache. Many of my classes have a static FromId(int) to get an instance from a primary key, returning an existing cached instance if we have one.
+
+",2008-10-14 20:01:23,2008-10-15 12:15:34,2008-10-15 12:15:34
+228774,"
+This would match:
+100.00
+optional ""1-9"" followed by a digit (this makes the int part), optionally followed by a dot and two digits
+From what I see, Greg Hewgill's example doesn't really work that well because parseFloat('15x') would simply return 15 which would match the 0<x<100 condition. Using parseFloat is clearly wrong because it doesn't validate the percentage value, it tries to force a validation. Some people around here are complaining about leading zeroes and some are ignoring trailing invalid characters. Maybe the author of the question should edit it and make clear what he needs.
+",2008-10-23 06:54:28,2011-12-03 02:37:20,2011-12-03 02:37:20
+234469,"There are a few programs that I would suggest.
+Paros Proxy and Ratproxy have already been noted.
+scapy is a powerful packet manipulation tool, and has all of the sniffing and monitoring capabilities as well.
+dsniff is a suite of tools that allows manipulation, injection, and all sorts of interception and modification options.
+There is also a plugin for IE called Tamper IE that has a simple GUI based packet editor.
+All of these are free.
+",2008-10-24 17:23:33,,2008-10-24 17:23:33
+239284,"Try serializing to json with Gson for example.
+",2008-10-27 07:45:54,,2008-10-27 07:45:54
+252996,"XML-GCC can't do that, because it only reports the data types (and function signatures). It ignores the function bodies. To see that, create a.cc:
+
+and then run . Look at the generated a.xml, to see that the only mentioning of foo (or its id) is in the declaration of foo.
+An alternative might be available in codeviz (http://www.csn.ul.ie/~mel/projects/codeviz/). It consists of a patch to gcc 3.4.6 that generates call dependency information - plus some perl scripts that generate graphviz input; the latter you can safely ignore.
+As yet another alternative (which doesn't need gcc modifications) you could copy the approach from egypt (http://www.gson.org/egypt/); this parses GCC RTL dumps. It should work with any recent GCC, however, it might be that you don't get calls to inline functions.
+In any case, with these approaches, you won't get ""calls"" to macros, but that might be actually the better choice.
+",2008-10-31 09:56:53,2015-12-09 02:59:40,2015-12-09 02:59:40
+420561,"In response to stevemegson (first answer) - shouldn't the first parameter into the pageTracker._addItem method be the OrderID, not the itemNumber?
+",2009-01-07 14:49:06,,2009-01-07 14:49:06
+517797,"
+Egypt (free software)
+ncc
+KcacheGrind (GPL)
+Graphviz (CPL)
+CodeViz (GPL)
+
+",2009-02-05 20:34:26,2017-09-18 18:25:11,2017-09-18 18:25:11
+538126,"I had the same problem while using JSON-lib, and it is indeed because the object is a proxy.
+I found Google-Gson handles serialization of Hibernate objects better, but of course it has its own quirks, so your mileage may vary.
+",2009-02-11 18:27:17,,2009-02-11 18:27:17
+583563,"Also: you could consider using one of other parsers from json.org's list: most of them allow your Json ""objects"" and ""arrays"" to map natively to java.util.Maps and java.util.Lists; or in some cases to real Java objects too.
+My recommendation would be Jackson, http://jackson.codehaus.org/Tutorial
+which allows for mapping to List/Map/Integer/String/Boolean/null, as well as to real Beans/POJOs. Just give it the type and it maps data to you, or writes Java objects as Json.
+Others like ""json-tools"" from berlios, or google-gson also expose similar functionality.
+",2009-02-24 20:58:02,,2009-02-24 20:58:02
+608270,"So I ended up redoing things and came up with the following solution which only queries the database twice and is MUCH faster:
+
+Thanks for your help casperOne!
+",2009-03-03 21:24:18,,2009-03-03 21:24:18
+624303,"Assuming you don't have any IHttpHandler funniness, you can check if HttpContext.PreviousHandler is not null. However, since there is a million (well, several) reasons that PreviousHandler could be set, I'd go with stevemegson's recommendation of using HttpContext.Items before calling Server.Execute.
+",2009-03-08 21:16:01,,2009-03-08 21:16:01
+624410,"I've written some code that provides ""LINQ to HTML"" functionality.  I thought I would share it here.  It is based on Majestic 12.  It takes the Majestic-12 results and produces LINQ XML elements.  At that point you can use all your LINQ to XML tools against the HTML.  As an example:
+
+I wanted to use Majestic-12 because I know it has a lot of built-in knowledge with regards to HTML that is found in the wild.  What I've found though is that to map the Majestic-12 results to something that LINQ will accept as XML requires additional work.  The code I'm including does a lot of this cleansing, but as you use this you will find pages that are rejected.  You'll need to fix up the code to address that.  When an exception is thrown, check exception.Data[""source""] as it is likely set to the HTML tag that caused the exception.  Handling the HTML in a nice manner is at times not trivial...
+So now that expectations are realistically low, here's the code :)
+
+",2009-03-08 22:11:02,,2009-03-08 22:11:02
+632412,"Generally no, they will ignore meta tags and do whatever they please.
+As stevemegson notes, the description meta tag is useful for providing your own description to display on the SERP (no guarantees it will be used).
+Heres a great quote from the Wiki page for Meta_Tag:
+
+Major search engine robots are more
+  likely to quantify such extant factors
+  as the volume of incoming links from
+  related websites, quantity and quality
+  of content, technical precision of
+  source code, spelling, functional v.
+  broken hyperlinks, volume and
+  consistency of searches and/or viewer
+  traffic, time within website, page
+  views, revisits, click-throughs,
+  technical user-features, uniqueness,
+  redundancy, relevance, advertising
+  revenue yield, freshness, geography,
+  language and other intrinsic
+  characteristics.
+
+",2009-03-10 21:45:35,2017-05-23 10:32:53,2017-05-23 10:32:53
+813414,"You can consider using JSON. GWT has necessary API to parse & generate JSON string in the client side. You get a lot of JSON API for server side. I tried with google-gson, which is fine. It converts your JSON string to POJO model and viceversa. Hope this helps you providing a decent solution for your requirement
+",2009-05-01 21:39:31,,2009-05-01 21:39:31
+815897,"I have a reqiurement, I need to play multiple audio songson ASP.Net page.Can anyone suggest the best way to implement this.
+I have page. There I will display the list of the songs in grid view. The gridview contains checkboxes and songs name. User should able to select the  multiple check boxes and click play.
+When ever user click play button on new popup window I have to play the all audio songs selected by user one by one. 
+I will appreciate your help.
+Thanks,
+Venkat.
+",2009-05-02 23:35:29,2009-07-27 21:29:49,2009-07-27 21:29:49
+823632,"Some JSON parsers do offer incremental (""streaming"") parser; for Java, at least following parsers from json.org page offer such an interface:
+
+Jackson (pull interface)
+Json-simple (SAX-style push interface)
+
+(in addition to Software Monkey's parser referred to by another answer)
+Actually, it is kind of odd that so many JSON parsers do NOT offer this simple low-level interface -- after all, they already need to implement low-level parsing, so why not expose it.
+EDIT (June 2011): Gson too has its own streaming API (with gson 1.6)
+",2009-05-05 06:41:55,2017-05-23 12:03:02,2017-05-23 12:03:02
+836805,"I'm using XStream and JETTISON's Stax JSON serializer to send/receive messages to/from JSON javascripts clients and Java web applications.
+I want to be able to create a list of objects to send to the server and be properly marshalled into Java but the format that XStream and JSON expect it in is very non-intuitive and requires our javascript libraries to jump through hoops.
+[EDIT Update issues using GSON library]
+I attempted to use the GSON library but it cannot deserialize concrete objects when I only have it expect generic super classes (XStream and Jettison handles this because type information is baked into the serialization). 
+GSON FAQ states Collection Limitation:
+
+Collections Limitations
+Can serialize collection of arbitrary objects but can not deserialize from it
+Because there is no way for the user to indicate the type of the resulting object
+While deserializing, Collection must be of a specific generic type
+
+Maybe I'm using bad java practices but how would I go about building a JSON to Java messaging framework that sent/received various concrete Message objects in JSON format?
+For example this fails:
+
+Here's an example, I want to send a list of 3 Message objects, 2 are of the same type and the 3rd is a different type.
+
+Intuitively I expect the XStream JSON to be serialized (and able to deserialize correctly) from the following format:
+
+Instead XStream creates a single element list with fields that are named the classnames and nested arrays of Objects of the same type.
+
+The trouble may be caused by it using the XStream XML CollectionConverter?
+Does anyone have a suggestion for a good JSON Java object serialization that allows you to read/write arbitrary Java objects. I looked at the Jackson Java JSON Processor but when you were reading in objects from a stream you had to specify what type of object it was unlike XStream where it will read in any object (because the serialized  XStream JSON contains class name information).
+",2009-05-07 20:14:28,2009-05-12 05:30:00,2009-05-12 05:30:00
+848689,"You can use preg_grep for the searches, be sure to sanitize the input, though:
+
+",2009-05-11 15:36:51,,2009-05-11 15:36:51
+849495,"I agree with other poster in that XStream is not a good fit -- it's an OXM (Object/Xml Mapper), and JSON is handled as a secondary output format using XML processing path. This is why a ""convention"" (of how to convert hierarchich xml model into object-graph model of json and vice versa) is needed; and your choice boils down to using whatever is least intrusive of sub-optimal choices.
+That works ok if XML is your primary data format, and you just need some rudimentary JSON(-like) support.
+To get good JSON-support, I would consider using a JSON processing library that does real OJM mapping (I assume Svenson does too, but additionally), such as:
+
+Jackson
+Google-gson
+
+Also: even if you do need to support both XML and JSON, you are IMO better off using separate libraries for these tasks -- objects (beans) to use on server-side need not be different, just serialization libs that convert to/from xml and json.
+",2009-05-11 18:50:09,,2009-05-11 18:50:09
+944404,"Look into GSON, a Java Library for converting Objects to JSON by Google.  [GSON Library][1]
+From the Google Code site: 
+
+http://code.google.com/p/google-gson/
+
+
+Provide simple toJson() and fromJson() methods to convert Java objects to JSON and vice-versa
+Allow pre-existing unmodifiable objects to be converted to and from JSON 
+
+",2009-06-03 12:17:37,2013-01-16 15:58:08,2013-01-16 15:58:08
+944853,"This may be quite simple but I'm rather new to Lambda's so bear with me.
+I have a function that uses a Lambda function to recurse.
+The main function receives a bool telling it to include certain information or not within the lambda.
+The function is designed to write out a custom class to XML - I think the code is pretty self explanitory.
+At the moment I have overcome the problem using a simple if statement, but it feels ugly so wondered if anyone knew a better way?
+
+",2009-06-03 13:48:12,2009-06-03 13:55:06,2009-06-03 13:55:06
+944886,"You could move the ""if"" statement inside the lambda function safely, if you preferred:
+
+Other than that, there doesn't seem to be any trivial way to simplify what you've got.
+(P.S. When it looks ugly, put some lipstick on that pig by pretty-printing it ;)
+",2009-06-03 13:54:02,,2009-06-03 13:54:02
+944892,"I guess you can do this, but end of the day it's still an if:
+
+",2009-06-03 13:54:13,,2009-06-03 13:54:13
+945005,"You can try to decompose your problem into two different ones:
+
+How to build a tree from errors structure.
+What to put into the tree nodes.
+
+Then the code will look like:
+
+Not any significantly better in this particular case, but it's a more general approach.
+",2009-06-03 14:13:05,,2009-06-03 14:13:05
+945008,"mquander's solution can be improved slightly to reduce duplication. You can use the fact that you can pass in  an element in the XElement constructor content, and it gets ignored. We can therefore move the condition further in:
+
+",2009-06-03 14:13:18,,2009-06-03 14:13:18
+987524,"JSON to Map always gonna be a string/object data type. i haved GSON lib from google.
+works very well and JDK 1.5 is  the min requirement.
+",2009-06-12 16:04:00,,2009-06-12 16:04:00
+1053976,"Substitute your own scaffolding generation code. Instructions are here (with the caveat that they may be out of date).
+An easier alternative may be to write a Rake action to do textual substitution in the (normally) generated source.
+",2009-06-28 01:05:29,2009-06-28 01:11:59,2009-06-28 01:11:59
+1059934,"jquery on the client side.  Makes it easy to request different data types, deal with different states of response, and hides away complexities.
+gson on the server if you are using Java, converts Java objects to JSON output, and vice versa.
+",2009-06-29 19:07:51,,2009-06-29 19:07:51
+1080502,"I'm new to JBoss Seam. I'd like to know how do I instantiate a class without a no-arg constructor in JBoss Seam.
+I have to instantiate JsonPrimitive (from Google Gson framework) that has just constructors which receive arguments.
+How the regular code would be:
+
+Trying to transport the code to Seam:
+
+But this kind of thing in Seam(shown above) will not help me. I have to pass an argument in the constructor to instantiate the class. 
+How could I tell Seam to use an argument in the constructor when instantiating an object to be injected?
+Thanks!
+",2009-07-03 19:07:50,,2009-07-03 19:07:50
+1084175,"For another approach to hardware-assisted x86 ISA virtualization, you may want to read about the Loongson 3 CPU.
+",2009-07-05 14:32:25,,2009-07-05 14:32:25
+1275276,"How do you lazy load nested lists without actually executing the query? Using a very basic example, say I have:
+
+And then in my repository layer, I have the following method:
+
+And then in the Service layer I'll have GetCityBlocksByOwner, where I utilize an extension method to get the city blocks owned by a specific person, say we just want Guido's blocks:
+
+If we do a .ToList() in the repository it's going to execute the queries - that's going to be ridiculous since we don't know who's blocks we're getting at that level. So the question is, how do we do this efficiently?  
+Let's assume there are 50000 block owners, and some 1000000 city blocks, loading all of them is not an option.  Using IQueryables won't work due to the nesting (without extreme hacking, at least that I'm aware of).  Also, if I try to use something like Rob Conery's LazyList, then we essentially have a leak from our DAL into our domain models, which could be very very bad in the future.
+So how do I go about doing this correctly?
+
+Is it a matter of determining the
+correct context? If so, would we do
+this in the Repository Layer, or the
+Service layer?
+Do I half meld together the Service layer and my Repository layer to get
+very specific service methods?
+Or am I missing something entirely? (still relatively new to the Linq2Sql
+thing, which is being phased out
+anyways so...)
+
+Edit:
+In the repository pattern, we're currently mapping to our domain objects, so it would look something like this:
+
+For this to work, we'd have to make the buildings get a .ToList(), unless we make that actual field in the CityBlock object an IQueryable - which doesn't seem right, because it seems as if too much power would be granted to anyone who accesses the CityBlock.BuildingsOnBlock field.  Is this mapping to our domain objects something we should maybe do up in the service layer?
+",2009-08-13 23:39:00,2009-08-14 00:13:10,2009-08-14 00:13:10
+1295081,"3 points ?  Catmull-Rom is defined for 4 points, say p_1 p0 p1 p2;
+a cubic curve goes from p0 to p1, and outer points p_1 and p2 determine the slopes at p0 and p1.
+To draw a curve through some points in an array P, do something like this:
+
+One can use piecewise quadratic curves through 3 points --
+see Dodgson, Quadratic Interpolation for Image Resampling.
+What do you really want to do ?
+",2009-08-18 16:39:30,2021-03-27 13:08:37,2021-03-27 13:08:37
+1324090,"You can read the file from S3 and write it locally to a non-public directory, then use X-Sendfile (apache) or X-Accel-Redirect (nginx) to serve the content.  
+For nginx you would include something like the following in your config:
+
+Then in your rails controller, you do the following:
+
+A good writeup of the process is here
+",2009-08-24 18:57:45,2009-08-26 19:18:00,2009-08-26 19:18:00
+1331466,"Have you looked at google's gson ? It will serialize any POJO hierarchy very nicely for you.
+",2009-08-25 22:55:26,,2009-08-25 22:55:26
+1340922,"In my SciTE there's ""Always On Top"" under Options.
+I use Version 1.75 Nov 22 2007 15:38:26 by Neil Hodgson.
+",2009-08-27 12:58:53,,2009-08-27 12:58:53
+1393611,"Per Barry Rowlingson on r-help (where you seem to have cross-posted):
+
+?read.fwf
+Read Fixed Width Format Files
+Description:
+
+Usage:
+
+
+",2009-09-08 12:04:42,,2009-09-08 12:04:42
+1397330,"I think Google Gson does what you want. It does take a little bit more than just one line for setting things up, etc, but I've used it before in projects and it's a very useful conversion library.
+",2009-09-09 02:59:45,,2009-09-09 02:59:45
+1433051,"Try to look http://www.tonyspencer.com/2007/03/01/custom-scaffolding-for-rails/ custom scaffol generator
+http://ramblingsonrails.com/how-to-update-the-rails-scaffold-generator-to-suit-your-own-applications
+",2009-09-16 13:43:18,,2009-09-16 13:43:18
+1456201,"When I look at the .asmx page in the browser I see:
+The following operations are supported. For a formal definition, please review the Service Description. 
+AcceptCaseInformation 
+ClearServiceErrors 
+CreateBatch 
+GetBookingsOnIndictment 
+GetCaseInformation 
+GetCasesForJacket 
+
+When I reference the asmx file in my project I do not see these web methods.  I see the complete set of methods in the Reference.cs.
+   JSSTester.GrandJuryService.GetBookingsOnIndictmentRequest
+   JSSTester.GrandJuryService.GetBookingsOnIndictmentRequestBody
+   JSSTester.GrandJuryService.GetBookingsOnIndictmentResponse 
+What am I not setting to allow me to see the WebMethods for that asmx page?
+TIA 
+",2009-09-21 18:56:52,,2009-09-21 18:56:52
+1523001,"http://behaviour-driven.org/ - 
+
+""BDD is an evolution in the thinking
+  behind Test Driven Development and
+  Acceptance Test Driven Planning.""
+
+http://dannorth.net/introducing-bdd
+http://blog.objectmentor.com/articles/2008/11/27/the-truth-about-bdd
+http://www.agilejournal.com/articles/columns/column-articles/597-behavior-driven-development-an-evolution-in-testing
+http://blog.daveastels.com/files/BDD_Intro.pdf
+http://behaviour-driven.org/Introduction
+http://eggsonbread.com/2009/07/22/behavior-driven-development-in-a-nutshell/
+",2009-10-06 00:00:40,2009-10-06 00:06:32,2009-10-06 00:06:32
+1558137,"So I suspect Frank is looking for an answer in Prolog, and yes it does smell rather homeworky...
+For fun I decided to write up my answer. It took me about 50 lines.
+So here is the outline of what my predicates look like. Maybe it will help get you thinking the Prolog way.
+
+The + and - are not really part of the parameter names. They are a documentation clue about what the author expects to be instantiated.(NB) ""+Foo"" means you expect Foo to have a value when the predicate is called. ""-Foo"" means you expect to Foo to be a variable when the predicate is called, and give it a value by the time it finishes. (kind of like input and output, if it helps to think that way)
+Whenever you see a pair of predicates like sum/2 and sum/3, odds are the sum/2 one is like a wrapper to the sum/3 one which is doing something like an accumulator.
+I didn't bother to make it print them out nicely. You can just query it directly in the Prolog command line:
+
+Another thing that might be helpful, that I find with Prolog predicates, is that there are generally two kinds. One is one that simply checks if something is true. For this kind of predicate, you want everything else to fail. These don't tend to need to be recursive. 
+Others will want to go through a range (of numbers or a list) and always return a result, even if it is 0 or []. For these types of predicates you need to use recursion and think about your base case.
+HTH. 
+NB: This is called ""mode"", and you can actually specify them and the compiler/interpreter will enforce them, but I personally just use them in documentation. Also tried to find a page with info about Prolog mode, but I can't find a good link. :(
+",2009-10-13 04:01:34,2017-03-20 10:29:31,2017-03-20 10:29:31
+1638061,"Why can't you use any library? Homework?
+It's hard to answer without having examples from your code, for example how you set .
+The urlsnarf tool in the dnsiff suite could be worth a look.
+",2009-10-28 15:36:43,,2009-10-28 15:36:43
+1652937,"I implemented @diogoriba algorithm into code, with this result:
+
+Finding the common prefix of the first two strings, and then comparing this with all following strings starting from the 3rd, and trim the common string if nothing common is found, wins in situations where there is more in common in the prefixes than different.
+But bumperbox's original algorithm (except the bugfixes) wins where the strings have less in common in their prefix than different. Details in the code comments!
+
+Another idea I implemented:
+First check for the shortest string in the array, and use this for comparison rather than simply the first string. In the code, this is implemented with the custom written function arrayStrLenMin().
+
+Can bring down iterations dramatically, but the function arrayStrLenMin() may itself cause ( more or less) iterations.
+Simply starting with the length of first string in array seems quite clumsy, but may turn out effective, if arrayStrLenMin() needs many iterations.
+
+Get the maximum common prefix of strings in an array with as little iterations as possible (PHP)
+Code + Extensive Testing + Remarks:
+
+",2009-10-31 00:21:29,,2009-10-31 00:21:29
+1680011,"I would vote for Json as well and then particularly Gson. It handles generic/parameterized objects very well.
+Alternatively, you can also write a generic object converter which does all of the needed conversions with a little help of reflection, such as this example. But if your ""API"" require that this converter is to be published as an interface to the enduser, then I would only suggest to replace
+
+by for example
+
+so that one doesn't need to cast it afterwards.
+",2009-11-05 11:38:34,2012-10-19 01:04:30,2012-10-19 01:04:30
+1688099,"I want to be able to access properties from a JSON string within my Java action method. The string is available by simply saying . Below is an example of what the string can look like:
+
+In this string every JSON object contains an array of other JSON objects. The intention is to extract a list of IDs where any given object possessing a group property that contains other JSON objects. I looked at Google's Gson as a potential JSON plugin. Can anyone offer some form of guidance as to how I can generate Java from this JSON string?
+",2009-11-06 14:54:04,2018-02-04 09:00:10,2018-02-04 09:00:10
+1688182,"
+I looked at Google's Gson as a potential JSON plugin. Can anyone offer some form of guidance as to how I can generate Java from this JSON string?
+
+Google Gson supports generics and nested beans. The  in JSON represents an array and should map to a Java collection such as  or just a plain Java array. The  in JSON represents an object and should map to a Java  or just some JavaBean class.
+You have a JSON object with several properties of which the  property represents an array of nested objects of the very same type. This can be parsed with Gson the following way:
+
+Fairly simple, isn't it? Just have a suitable JavaBean and call .
+See also:
+
+Json.org - Introduction to JSON
+Gson User Guide - Introduction to Gson
+
+",2009-11-06 15:06:09,2020-06-20 09:12:55,2020-06-20 09:12:55

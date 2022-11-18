@@ -1,0 +1,26 @@
+id,sentence,date,gson_version
+538126,"<better> I found Google-Gson handles serialization of Hibernate objects better, but of course it has its own quirks, so your mileage may vary.",2009-02-11 18:27:17,[]
+583563,"<like> Others like ""json-tools"" from berlios, or google-gson also expose similar functionality.",2009-02-24 20:58:02,[]
+813414,"<fine> I tried with google-gson, which is fine.",2009-05-01 21:39:31,[]
+836805,"<issues> [EDIT Update issues using GSON library]
+I attempted to use the GSON library but it cannot deserialize concrete objects when I only have it expect generic super classes (XStream and Jettison handles this because type information is baked into the serialization).",2009-05-12 05:30:00,[]
+836805,"<super> [EDIT Update issues using GSON library]
+I attempted to use the GSON library but it cannot deserialize concrete objects when I only have it expect generic super classes (XStream and Jettison handles this because type information is baked into the serialization).",2009-05-12 05:30:00,[]
+849495,"<support> <good> <better> To get good JSON-support, I would consider using a JSON processing library that does real OJM mapping (I assume Svenson does too, but additionally), such as:
+
+Jackson
+Google-gson
+
+Also: even if you do need to support both XML and JSON, you are IMO better off using separate libraries for these tasks -- objects (beans) to use on server-side need not be different, just serialization libs that convert to/from xml and json.",2009-05-11 18:50:09,[]
+944404,"<vice> [GSON Library][1]
+From the Google Code site: 
+
+http://code.google.com/p/google-gson/
+
+
+Provide simple toJson() and fromJson() methods to convert Java objects to JSON and vice-versa
+Allow pre-existing unmodifiable objects to be converted to and from JSON",2013-01-16 15:58:08,"['2.2', '2.1', '2.0']"
+1688182,<supports> Google Gson supports generics and nested beans.,2020-06-20 09:12:55,"['2.8', '2.6', '2.7']"
+1688182,"<fairly> This can be parsed with Gson the following way:
+
+Fairly simple, isn't it?",2020-06-20 09:12:55,"['2.8', '2.6', '2.7']"

@@ -8,6 +8,9 @@ import sys
 import os
 import logging
 
+logging.basicConfig(format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.INFO)
+logging.info('Started program: '+os.path.basename(__file__))
+
 file_dir = os.path.dirname(__file__)
 sys.path.append(file_dir)
 from process_post_text import *
@@ -20,8 +23,9 @@ data_dir = "../data/"
 # keywords =  ["memcpy", "memmove"]
 # keywords = ['pandas', 'numpy']
 #keywords = ['lxml', 'beautifulsoup']
-keywords = ['gson', 'jackson']
-#keywords = ['gson', '2.8']
+#keywords = ['gson', 'jackson']
+# keywords = ['gson', '2.8']
+keywords = ['gson']
 
 # query = ("SELECT id, body FROM Posts where body like '%mysql%connector%' LIMIT 2")
 # query = "SELECT id, body FROM stackoverflow.Posts where (Tags like '%<slf4j>%' and Tags like '%<log4j2>%') order by ViewCount Desc LIMIT 0, 5;"
@@ -31,9 +35,21 @@ keywords = ['gson', 'jackson']
 # query = "SELECT id, text as body FROM stackoverflow.Comments where (text like '%pandas%' and text like '%numpy%')  LIMIT 0, 50;"
 #query = "SELECT id, body, creationdate FROM stackoverflow.Posts where (body like '%lxml%' and body like '%beautifulsoup%')  LIMIT 0, 50;"
 
-query = "SELECT id, body, creationdate, lasteditdate FROM stackoverflow.Posts where (body like '%" +keywords[0]+ "%' and body like '%" +keywords[1]+ "%')  LIMIT 0, 50;"
-logging.basicConfig(format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.INFO)
-logging.info('Started program: '+os.path.basename(__file__))
+dual_library_comparison = len(keywords)>1
+if dual_library_comparison:
+    query = "SELECT id, body, creationdate, lasteditdate FROM stackoverflow.Posts where (body like '%" +keywords[0]+ "%' and body like '%" +keywords[1]+ "%')  LIMIT 0, 50;"
+else:
+    query = "SELECT id, body, creationdate, lasteditdate FROM stackoverflow.Posts where (body like '%" +keywords[0]+ "%')  LIMIT 0, 50;"
+
+# check if the keyword[1] is in the form of x.y and denotes version number
+if dual_library_comparison:
+    if len(keywords[1].split('.')) == 2:
+        # check if the keyword[1] contains only digits and dots
+        if keywords[1].replace('.', '', 1).isdigit():
+            dual_library_comparison = False
+            print("dual_library_comparison: ", dual_library_comparison)
+
+
 
 def get_file_name():
     file_name = "stackoverflow_"
@@ -110,14 +126,26 @@ for (id, body, creationdate, lasteditdate, date) in myresult:
     # print each sentence in one line with sentence counter
     for i, sentence in enumerate(sentences_with_adjectives):
         print(i+s, sentence)
-        opinion_list.append((id, sentence, date, get_tentative_versions(keywords[0], date), get_tentative_versions(keywords[1], date)))
+
+        # version of librar#1:
+        version_librarary1 = get_tentative_versions(keywords[0], date)
+        version_librarary2 = ''
+        if dual_library_comparison == True:
+            version_librarary2 = get_tentative_versions(keywords[1], date)
+            opinion_list.append((id, sentence, date, version_librarary1, version_librarary2))
+        else:
+            opinion_list.append((id, sentence, date, version_librarary1))
+
 
     s = s + len(sentences_with_adjectives)
 
     #print('#####################')
 
+if dual_library_comparison == True:
+    opinion_list_pd = pd.DataFrame(opinion_list, columns=['id', 'sentence', 'date', keywords[0]+'_version', keywords[1]+'_version'])
+else:
+    opinion_list_pd = pd.DataFrame(opinion_list, columns=['id', 'sentence', 'date', keywords[0]+'_version'])
     
-opinion_list_pd = pd.DataFrame(opinion_list, columns=['id', 'sentence', 'date', keywords[0]+'_version', keywords[1]+'_version'])
 opinion_list_pd.to_csv(data_dir+get_file_name()[:-4]+"_opinion.csv", index=False)
 
 if CACHED_DATA == False:

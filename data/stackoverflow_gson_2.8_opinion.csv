@@ -1,0 +1,36 @@
+id,sentence,date,gson_version,2.8_version
+3625291,"<available> The Gson project is hosted at and available for download from https://github.com/google/gson and licensed using the Apache License 2.0
+Latest release: 2.8.6 released on Oct 4, 2019
+Project Links
+
+Gson API: Javadocs for the current Gson release
+Gson guide:",2020-08-25 14:39:35,"['2.8', '2.6', '2.7']",
+4889847,"<support> JSON can be natively understood by JavaScript parsers, including node.js
+
+
+JSON libraries
+
+Java: JSR 353 (JSONP), FasterXML Jackson, Google Gson, JSON-Java, or jsoniter
+JavaScript: json2.js (only needed in old browsers without native JSON support)",2021-11-01 01:15:04,"['2.8', '2.6', '2.7']",
+6621845,<struggling> I'm new to GSON and am really struggling to parse this data:,2012-09-06 04:06:51,"['2.2', '2.1', '2.0']",
+7310424,"<static> Google's GSON can do this in a nice way:
+
+or since it is now recommended to use the static parse method from JsonParser you can also use this instead:
+
+Here is the import statement:
+
+Here is the Gradle dependency:",2021-07-20 18:57:02,"['2.8', '2.6', '2.7']",
+7310424,"<recommended> <nice> Google's GSON can do this in a nice way:
+
+or since it is now recommended to use the static parse method from JsonParser you can also use this instead:
+
+Here is the import statement:
+
+Here is the Gradle dependency:",2021-07-20 18:57:02,"['2.8', '2.6', '2.7']",
+15620862,"<object> According to GSon documentation an exception is already thrown if the json stream can't be deserialized according to the type you provided:
+
+Throws:
+   - if json is not a valid representation for an object of type classOfT",2016-11-04 03:42:20,"['2.8', '2.6', '2.7']",
+17009952,"<lose> <disadvantage> Note that registration of serializers and adapters use the exact same code:
+
+If you find that you need to stick with an adapter, then you can use an embedded Gson proxy to serialize the Pair properties for you, with the disadvantage that you lose access to custom registrations that you made on the parent Gson proxy:",2017-07-30 06:33:00,"['2.8', '2.6', '2.7']",
