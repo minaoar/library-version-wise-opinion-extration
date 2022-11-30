@@ -8,8 +8,6 @@ import sys
 import os
 import logging
 
-logging.basicConfig(format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.INFO)
-logging.info('Started program: '+os.path.basename(__file__))
 
 file_dir = os.path.dirname(__file__)
 sys.path.append(file_dir)
@@ -73,83 +71,42 @@ def store_data(myresult, column_names):
     logging.info('Data stored in file: '+get_file_name())
     return df
 
-CACHED_DATA = True
+CACHED_DATA = False
 
-if CACHED_DATA == False:
-    # Connect to mysql database and select all rows from table
-    import pwd
-    import mysql.connector
-    from mysql.connector import errorcode
-    DB_NAME = 'stackoverflow'
+def collect_data():
+    if CACHED_DATA == False:
+        # Connect to mysql database and select all rows from table
+        import pwd
+        import mysql.connector
+        from mysql.connector import errorcode
+        DB_NAME = 'stackoverflow'
 
-    userid = 'root'
-    pwd = '11111111'
+        userid = 'root'
+        pwd = '11111111'
 
-    print("Connecting to database...")
-    cnx = mysql.connector.connect(user=userid, password=pwd, database=DB_NAME)
-    print("Connected to database")
-
-
-    cursor = cnx.cursor()
-
-    cursor.execute(query)
-
-    # print the result
-    myresult = cursor.fetchall()
-
-    #print column names
-    print(cursor.column_names)
-
-    myresult = store_data(myresult, cursor.column_names)
-else:
-    # load myresult dataframe from stored data file. 
-    # This is to avoid connecting to mysql database everytime
-    myresult = pd.read_csv(data_dir+get_file_name())
-    #print(myresult.head)
-
-# convert myresult to list of tuples
-myresult = [tuple(x) for x in myresult.values]
-
-opinion_list = []
-
-s = 1
-for (id, body, creationdate, lasteditdate, date) in myresult:
-    #print(id, creationdate)
-    #print(body)
-    #print('---------------------')
-    # parse stackoverflow post body by removing xml tags
-    
-    sentences = process_raw_text(body)
-    sentences_with_keywords = extract_sentence_with_keywords(sentences, keywords)
-    sentences_with_adjectives = extract_sentence_with_adjectives(sentences_with_keywords)
-
-    # print each sentence in one line with sentence counter
-    for i, sentence in enumerate(sentences_with_adjectives):
-        print(i+s, sentence)
-
-        # version of librar#1:
-        version_librarary1 = get_tentative_versions(keywords[0], date)
-        version_librarary2 = ''
-        if dual_library_comparison == True:
-            version_librarary2 = get_tentative_versions(keywords[1], date)
-            opinion_list.append((id, sentence, date, version_librarary1, version_librarary2))
-        else:
-            opinion_list.append((id, sentence, date, version_librarary1))
+        print("Connecting to database...")
+        cnx = mysql.connector.connect(user=userid, password=pwd, database=DB_NAME)
+        print("Connected to database")
 
 
-    s = s + len(sentences_with_adjectives)
+        cursor = cnx.cursor()
 
-    #print('#####################')
+        cursor.execute(query)
 
-if dual_library_comparison == True:
-    opinion_list_pd = pd.DataFrame(opinion_list, columns=['id', 'sentence', 'date', keywords[0]+'_version', keywords[1]+'_version'])
-else:
-    opinion_list_pd = pd.DataFrame(opinion_list, columns=['id', 'sentence', 'date', keywords[0]+'_version'])
-    
-opinion_list_pd.to_csv(data_dir+get_file_name()[:-4]+"_opinion.csv", index=False)
+        # print the result
+        myresult = cursor.fetchall()
 
-if CACHED_DATA == False:
-    cursor.close()
-    cnx.close()
+        #print column names
+        print(cursor.column_names)
 
-logging.info('Finished program: '+os.path.basename(__file__))
+        myresult = store_data(myresult, cursor.column_names)
+        cursor.close()
+        cnx.close()
+    else:
+        # load myresult dataframe from stored data file. 
+        # This is to avoid connecting to mysql database everytime
+        myresult = pd.read_csv(data_dir+get_file_name())
+        #print(myresult.head)
+
+    return myresult
+
