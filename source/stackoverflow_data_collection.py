@@ -9,12 +9,6 @@ import os
 import logging
 
 
-file_dir = os.path.dirname(__file__)
-sys.path.append(file_dir)
-from process_post_text import *
-from library_version_info_processor import *
-
-
 data_dir = "../data/"
 
 # keywords =  ["slf4j", "log4j"]
