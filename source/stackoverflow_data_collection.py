@@ -71,7 +71,7 @@ def store_data(myresult, column_names):
     logging.info('Data stored in file: '+get_file_name())
     return df
 
-CACHED_DATA = False
+CACHED_DATA = True
 
 def collect_data():
     if CACHED_DATA == False:

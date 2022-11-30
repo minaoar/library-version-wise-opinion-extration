@@ -15,7 +15,7 @@ file_dir = os.path.dirname(__file__)
 sys.path.append(file_dir)
 from process_post_text import *
 from library_version_info_processor import *
-from data_collection import *
+from stackoverflow_data_collection import *
 
 
 data_dir = "../data/"

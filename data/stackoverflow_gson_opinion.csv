@@ -2,9 +2,9 @@ id,sentence,date,gson_version
 538126,"<better> I found Google-Gson handles serialization of Hibernate objects better, but of course it has its own quirks, so your mileage may vary.",2009-02-11 18:27:17,[]
 583563,"<like> Others like ""json-tools"" from berlios, or google-gson also expose similar functionality.",2009-02-24 20:58:02,[]
 813414,"<fine> I tried with google-gson, which is fine.",2009-05-01 21:39:31,[]
-836805,"<issues> [EDIT Update issues using GSON library]
-I attempted to use the GSON library but it cannot deserialize concrete objects when I only have it expect generic super classes (XStream and Jettison handles this because type information is baked into the serialization).",2009-05-12 05:30:00,[]
 836805,"<super> [EDIT Update issues using GSON library]
+I attempted to use the GSON library but it cannot deserialize concrete objects when I only have it expect generic super classes (XStream and Jettison handles this because type information is baked into the serialization).",2009-05-12 05:30:00,[]
+836805,"<issues> [EDIT Update issues using GSON library]
 I attempted to use the GSON library but it cannot deserialize concrete objects when I only have it expect generic super classes (XStream and Jettison handles this because type information is baked into the serialization).",2009-05-12 05:30:00,[]
 849495,"<support> <good> <better> To get good JSON-support, I would consider using a JSON processing library that does real OJM mapping (I assume Svenson does too, but additionally), such as:
 
