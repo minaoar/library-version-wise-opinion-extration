@@ -11,6 +11,10 @@ import logging
 
 data_dir = "../data/"
 
+file_dir = os.path.dirname(__file__)
+sys.path.append(file_dir)
+from opinion_extraction import * # for invoking process_raw_text_body
+
 # keywords =  ["slf4j", "log4j"]
 # keywords =  ["memcpy", "memmove"]
 # keywords = ['pandas', 'numpy']
