@@ -13,7 +13,7 @@ logging.info('Started program: '+os.path.basename(__file__))
 
 file_dir = os.path.dirname(__file__)
 sys.path.append(file_dir)
-from process_post_text import *
+from opinion_extraction import *
 from library_version_mapping import *
 from stackoverflow_data_collection import *
 
