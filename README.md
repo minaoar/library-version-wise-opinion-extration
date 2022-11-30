@@ -49,6 +49,6 @@ Here is a simple way to start with the Docker:
 5. Start the library-opinion image from the Docker application.
 6. From the Containers tab of Docker application, you can see the library-opinion container is running.
 7. You can enter in to CLI (command line interface) of the container. It will take you to the project directory inside the container.
-8. In the CLI, you can go to 'source' folder and run script data_collection.py (python3 data_collection.py). 
+8. In the CLI, you can go to 'source' folder and run script library_version_opinion_extracton.py (python3 library_version_opinion_extracton.py). 
 9. It should give you an output similar to this (not exactly this and can change every time you run it):
-> <img width="1435" alt="image" src="https://user-images.githubusercontent.com/5583535/198144309-71150b7f-fe75-489e-8ff3-4c040055553e.png">
+| ![Screenshot 2022-11-30 at 10 55 33 AM](https://user-images.githubusercontent.com/5583535/204872611-441d68e2-1303-4f18-ac40-ae2fc58c25fe.png)
