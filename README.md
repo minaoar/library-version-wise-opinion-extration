@@ -13,7 +13,7 @@ Stack Overflow contains hundreds of thousands of opinions regarding open source 
 The objective of the project would be to be able to collect and present release version specific opinions regarding an open source library from Stack Overflow.
 
 ## Project Scope
-- The data would be collected from Stack Overflow data dump. Language of the library would be Python so that the version information can be collected from PyPI using REST API.
+- The data would be collected from Stack Overflow data dump to extract opinions regarding Java libraries. The release and version information of the Java libraries would be collected from mavenrepository.com.
 - The project will collect this library specific opinion about one or two sample library. Developing a generic any library data extraction would be outside of the scope of this project as there can be library or language specific challenges that may not be the primary interest in this Open Source Software course. However this can be extended as future expansion beyond this project scope.
 - The project will contain minimum or no graphical user interface. Main target of the project would be prepare a backend data collection engine that will collect the opinions and map them with the version and can store the summary information in flat file or database storage as found appropriate during the project.
 
