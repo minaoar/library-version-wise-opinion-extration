@@ -52,13 +52,6 @@ Here is a simple way to start with the Docker:
 8. In the CLI, you can go to 'source' folder (cd source) and run script library_version_opinion_extracton.py (python3 library_version_opinion_extracton.py). 
 9. It should give you an output similar to this (not exactly this and can change every time you run it):
 > <img width="724" alt="Screenshot 2022-12-07 at 8 51 11 AM" src="https://user-images.githubusercontent.com/5583535/206226318-8865fa78-d0cf-4424-ae2e-2f4a981d9559.png">
-10. In order to run tests, go to test folder (cd ../test) and run the command "python3 -m unittest *.py". 
-Starting of ouput should be similar to this:
-
-> <img width="716" alt="Screenshot 2022-12-07 at 8 53 53 AM" src="https://user-images.githubusercontent.com/5583535/206227052-4758be7e-2f4d-4884-b618-2de015ac3d70.png">
-
-The output should end like this:
-
-> <img width="510" alt="unit-test-2" src="https://user-images.githubusercontent.com/5583535/206227432-dfd4249f-ed92-46ad-b52b-513e44c8d4ec.png">
-
-
+10. In order to run tests, go to test folder (cd ../test) and run the command "python3 -W ignore -m unittest  *.py". Output should be similar to this:
+> <img width="882" alt="Screenshot 2022-12-07 at 2 32 29 PM" src="https://user-images.githubusercontent.com/5583535/206300990-dbc9b7c2-8934-4fcf-a62c-16e6c10a613d.png">
+(Sometimes library version related test can fail if there is issue with scraping maven site or the version information is updated. In that case, test values can be updated.)
