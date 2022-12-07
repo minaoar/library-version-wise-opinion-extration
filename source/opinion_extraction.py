@@ -17,6 +17,13 @@ import spacy
 POSITIVE_WORD_FILE = "../data/positive-words.txt"
 NEGATIVE_WORD_FILE = "../data/negative-words.txt"
 
+import os
+import sys
+file_dir = os.path.dirname(__file__)
+sys.path.append(file_dir)
+
+from config import *
+
 # read word list from a text file. Each line contains a word
 def read_word_list(file_name):
     word_list = []
