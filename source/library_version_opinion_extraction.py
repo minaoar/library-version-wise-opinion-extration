@@ -8,6 +8,9 @@ import sys
 import os
 import logging
 
+import warnings
+warnings.filterwarnings("ignore")
+
 logging.basicConfig(format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.INFO)
 logging.info('Started program: '+os.path.basename(__file__))
 
@@ -42,7 +45,7 @@ def extract_opinions_with_library_version():
 
         # print each sentence in one line with sentence counter
         for i, sentence in enumerate(sentences_with_adjectives):
-            print(i+s, sentence)
+            # print(i+s, sentence)
 
             # version of librar#1:
             version_librarary1 = get_tentative_versions(keywords[0], date)
@@ -69,7 +72,10 @@ def extract_opinions_with_library_version():
 
 opinion_list_pd = extract_opinions_with_library_version()
 
+print("Opinion list with version information for the keywords: ", keywords)
+print('-'*100)
 print(opinion_list_pd)
+print('-'*100)
 
 opinion_list_pd.to_csv(data_dir+get_file_name()[:-4]+"_opinion.csv", index=False)
 
