@@ -14,6 +14,7 @@ Since this project is licensed under MIT License, if you use any OSS component,
 please ensure that the component is licensed under only the permissive licenses
 (e.g., MIT, BSD, Apache) approved by the [Open Source Initiative](https://opensource.org/licenses).
 * Third party components or libraries should be included in the [requirement.txt](https://github.com/minaoar/library-version-wise-opinion-extration/blob/main/requirements.txt) file along with the license information (as done currently) so that we can be sure in single place that we are complying with the OSS policy.
+* In case of python libraries, you can check the license information from [pypi](https://pypi.org) package manager.
 
 ## Particpate in Discussion
 You can participate in discussion from the [Discussion](https://github.com/minaoar/library-version-wise-opinion-extration/discussions) section 
