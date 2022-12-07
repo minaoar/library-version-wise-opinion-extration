@@ -49,6 +49,16 @@ Here is a simple way to start with the Docker:
 5. Start the library-opinion image from the Docker application.
 6. From the Containers tab of Docker application, you can see the library-opinion container is running.
 7. You can enter in to CLI (command line interface) of the container. It will take you to the project directory inside the container.
-8. In the CLI, you can go to 'source' folder and run script library_version_opinion_extracton.py (python3 library_version_opinion_extracton.py). 
+8. In the CLI, you can go to 'source' folder (cd source) and run script library_version_opinion_extracton.py (python3 library_version_opinion_extracton.py). 
 9. It should give you an output similar to this (not exactly this and can change every time you run it):
-| ![Screenshot 2022-11-30 at 10 55 33 AM](https://user-images.githubusercontent.com/5583535/204872611-441d68e2-1303-4f18-ac40-ae2fc58c25fe.png)
+> <img width="724" alt="Screenshot 2022-12-07 at 8 51 11 AM" src="https://user-images.githubusercontent.com/5583535/206226318-8865fa78-d0cf-4424-ae2e-2f4a981d9559.png">
+10. In order to run tests, go to test folder (cd ../test) and run the command "python3 -m unittest *.py". 
+Starting of ouput should be similar to this:
+
+> <img width="716" alt="Screenshot 2022-12-07 at 8 53 53 AM" src="https://user-images.githubusercontent.com/5583535/206227052-4758be7e-2f4d-4884-b618-2de015ac3d70.png">
+
+The output should end like this:
+
+> <img width="510" alt="unit-test-2" src="https://user-images.githubusercontent.com/5583535/206227432-dfd4249f-ed92-46ad-b52b-513e44c8d4ec.png">
+
+
