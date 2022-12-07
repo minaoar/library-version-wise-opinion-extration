@@ -9,10 +9,10 @@ import os
 import logging
 
 
-data_dir = "../data/"
 
 file_dir = os.path.dirname(__file__)
 sys.path.append(file_dir)
+from config import *
 from opinion_extraction import * # for invoking process_raw_text_body
 
 # keywords =  ["slf4j", "log4j"]
@@ -69,21 +69,15 @@ def store_data(myresult, column_names):
     logging.info('Data stored in file: '+get_file_name())
     return df
 
-CACHED_DATA = True
-
 def collect_data():
     if CACHED_DATA == False:
         # Connect to mysql database and select all rows from table
         import pwd
         import mysql.connector
         from mysql.connector import errorcode
-        DB_NAME = 'stackoverflow'
-
-        userid = 'root'
-        pwd = '11111111'
 
         print("Connecting to database...")
-        cnx = mysql.connector.connect(user=userid, password=pwd, database=DB_NAME)
+        cnx = mysql.connector.connect(user=DB_USERID, password=DB_PWD, database=DB_NAME)
         print("Connected to database")
 
 

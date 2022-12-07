@@ -8,20 +8,21 @@ import sys
 import os
 import logging
 
-import warnings
-warnings.filterwarnings("ignore")
+# import warnings
+# warnings.filterwarnings("ignore")
 
-logging.basicConfig(format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.INFO)
+# logging.basicConfig(format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.INFO)
 logging.info('Started program: '+os.path.basename(__file__))
 
 file_dir = os.path.dirname(__file__)
 sys.path.append(file_dir)
+from config import *
 from opinion_extraction import *
 from library_version_mapping import *
 from stackoverflow_data_collection import *
 
 
-data_dir = "../data/"
+# data_dir = "../data/"
 
 def extract_opinions_with_library_version():
 
