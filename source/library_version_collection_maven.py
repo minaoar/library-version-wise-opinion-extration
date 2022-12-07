@@ -6,7 +6,13 @@ import cloudscraper
 import pandas as pd
 from tabulate import tabulate
 
-data_dir = "../data/"
+
+import os
+import sys
+file_dir = os.path.dirname(__file__)
+sys.path.append(file_dir)
+
+from config import *
 
 def get_site_content(site_url):
 
@@ -16,6 +22,8 @@ def get_site_content(site_url):
 
 def get_artifact_page(response, library_name):
     #print(response.text)
+    logging.log(LOG_LEVEL_APPLICATION_DEBUG, "Getting artifact page for library: "+library_name)
+
     soup = BeautifulSoup(response.text, "html.parser")
 
     # parse all href links and texts from the lists
@@ -26,6 +34,7 @@ def get_artifact_page(response, library_name):
             artifact_name = href.split('/')[-1]
             if library_name in artifact_name:
                 #print(href)
+                logging.log(LOG_LEVEL_APPLICATION_DEBUG, "Artifact page found: "+href)
                 return href
 
 
@@ -77,7 +86,7 @@ def parse_library_details_page(response):
 
     #load pandas dataframe from the introductory table
     artifact_info_table = pd.read_html(str(tables_all[0]))[0]
-    print("Artifact Info:\n", artifact_info_table.to_markdown(index=False))
+    logging.log(LOG_LEVEL_APPLICATION_DEBUG, "Artifact Info:\n" + artifact_info_table.to_markdown(index=False))
     
     # Since the version details table contains merged cells, we need to parse the table manually
     # version_info_table = pd.read_html(str(table[1]))[0]
@@ -93,7 +102,7 @@ def parse_library_details_page(response):
 
     # remove empty rows
     version_info_table = version_info_table.dropna()
-    print("\n\nVersion Info [" + str(len(version_list))+"]:\n", version_info_table.to_markdown(index=False))
+    logging.log(LOG_LEVEL_APPLICATION_DEBUG, "Version Info [" + str(len(version_list))+"]:\n"+ version_info_table.to_markdown(index=False))
 
     return artifact_info_table, version_info_table
 
@@ -105,8 +114,8 @@ def get_library_results(library_name):
     artifact_page = get_artifact_page(response, library_name)
     # get the library details page
     library_details_page = "https://mvnrepository.com"+artifact_page
-    print("Library Details Page: ", library_details_page)
-    print("*"*100)
+    logging.log(LOG_LEVEL_APPLICATION_DEBUG, "Library Details Page: "+ library_details_page)
+    logging.log(LOG_LEVEL_APPLICATION_DEBUG, "*"*100)
 
     # get the library details page content
     response = get_site_content(library_details_page)
@@ -120,9 +129,9 @@ def get_library_results(library_name):
     
 if __name__ == "__main__":
     get_library_results("gson")
-    get_library_results("jackson")
-    get_library_results("spring-orm")
-    get_library_results("hibernate")
+    # get_library_results("jackson")
+    # get_library_results("spring-orm")
+    # get_library_results("hibernate")
 
 
 

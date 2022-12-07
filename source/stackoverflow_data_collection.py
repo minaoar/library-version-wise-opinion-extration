@@ -98,7 +98,9 @@ def collect_data():
         # load myresult dataframe from stored data file. 
         # This is to avoid connecting to mysql database everytime
         myresult = pd.read_csv(data_dir+get_file_name())
-        #print(myresult.head)
+        logging.log(LOG_LEVEL_APPLICATION_DEBUG, "Cached opinion data from stack overflow:\n"+str(myresult))
 
     return myresult
 
+if __name__ == "__main__":
+    collect_data()

@@ -8,11 +8,6 @@ import sys
 import os
 import logging
 
-# import warnings
-# warnings.filterwarnings("ignore")
-
-# logging.basicConfig(format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.INFO)
-logging.info('Started program: '+os.path.basename(__file__))
 
 file_dir = os.path.dirname(__file__)
 sys.path.append(file_dir)
@@ -21,8 +16,8 @@ from opinion_extraction import *
 from library_version_mapping import *
 from stackoverflow_data_collection import *
 
-
-# data_dir = "../data/"
+# logging.basicConfig(format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.INFO)
+logging.log(logging.INFO, 'Started program: '+os.path.basename(__file__))
 
 def extract_opinions_with_library_version():
 
@@ -73,12 +68,11 @@ def extract_opinions_with_library_version():
 
 opinion_list_pd = extract_opinions_with_library_version()
 
-print("Opinion list with version information for the keywords: ", keywords)
-print('-'*100)
-print(opinion_list_pd)
-print('-'*100)
+logging.log(logging.INFO,"Opinion list with version information for the keywords: "+ str(keywords))
+logging.log(logging.INFO,'-'*100)
+logging.log(logging.INFO, "\n"+ str(opinion_list_pd))
+logging.log(logging.INFO,'-'*100)
 
 opinion_list_pd.to_csv(data_dir+get_file_name()[:-4]+"_opinion.csv", index=False)
 
-
-logging.info('Finished program: '+os.path.basename(__file__))
+logging.log(logging.INFO, 'Finished program: '+os.path.basename(__file__))
