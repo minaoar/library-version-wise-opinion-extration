@@ -25,6 +25,7 @@ INPUT FILES:
 
 OUTPUT FILES:
 - The output files contain the name in the format stackoverflow_<library>_opinion.csv (e.g., stackoverflow_gson_opinion.csv.)
+  > <img width="978" alt="output" src="https://user-images.githubusercontent.com/5583535/206252379-59cb9dd2-06c6-495c-ae09-e7b73e873c37.png">
 
 ### Source Code
 The main file which extracts opinions and maps the opinions with library name and versions is library_version_opinion_extraction.py. All other files are helper modules for specific purposes.
