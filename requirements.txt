@@ -1,3 +1,6 @@
+#  Copyright Minaoar Hossain Tanzil, 2022 Licensed under MIT License.
+#  See the LICENSE.txt for more information.
+
 beautifulsoup4==4.11.1 # MIT License
 spacy==3.4 # MIT License
 cloudscraper==1.2.64 # MIT License

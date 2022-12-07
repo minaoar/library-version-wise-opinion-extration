@@ -1,3 +1,6 @@
+#  Copyright Minaoar Hossain Tanzil, 2022 Licensed under MIT License.
+#  See the LICENSE.txt for more information.
+
 # set base image (host OS)
 FROM python:3.8
 
