@@ -18,6 +18,7 @@ COPY source/ ./source/
 
 # copy the content of the local data directory to the working directory
 COPY data/ ./data/
+COPY test/ ./test/
 
 # command to run on container start
 #CMD [ "CD", "./source" ]
