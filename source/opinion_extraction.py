@@ -120,4 +120,10 @@ def extract_sentence_with_adjectives(sentence_list):
 
     return sentences
     
-#print(process_raw_text('<p>Hi, I am trying to connect to mysql database using mysql.connector. I am getting the following error:</p>'))
+if __name__ == "__main__":
+    input = '<p>Hi, I am trying to connect to mysql database using mysql.connector. I am getting the following error:</p>'
+    logging.log(LOG_LEVEL_APPLICATION_DEBUG, "Raw input text:\n"+ input)
+
+    processed_sentences = process_raw_text(input)
+
+    logging.log(LOG_LEVEL_APPLICATION_DEBUG, "Identified sentences:\n"+ str(processed_sentences))

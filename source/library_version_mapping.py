@@ -51,7 +51,7 @@ def process_version_info(library_name):
     # move the days column immediately after the usage column
     version_info = version_info[['version', 'usage', 'days', 'date_min', 'date_max']]
 
-    # print(version_info)
+    logging.log(LOG_LEVEL_APPLICATION_DEBUG, "Release dates and version information of library "+library_name+":\n"+str(version_info))
     return version_info
 
 def adjust_cool_down_period(date):
@@ -82,7 +82,7 @@ def get_tentative_versions(library, date):
 
     # keep only the version text and convert the series to list
     tentative_versions = tentative_versions['version'].tolist()
-    # fancy_print(tentative_versions)
+    logging.log(LOG_LEVEL_APPLICATION_DEBUG, "Tentative version of library "+library+" on date "+str(date)+" -> "+str(tentative_versions))
     return tentative_versions
 
 

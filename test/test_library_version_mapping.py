@@ -51,7 +51,7 @@ class TestLibraryVersionMapping(unittest.TestCase):
 
         # test for spring-orm
         version_info = process_version_info("spring-orm")
-        self.assertEqual(version_info.shape, (13, 5))
+        self.assertEqual(version_info.shape, (14, 5))
 
         # test for hibernate
         version_info = process_version_info("hibernate")
